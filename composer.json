@@ -1,0 +1,20 @@
+{
+    "name": "doubleedesign/simple-staff-portal",
+    "description": "Simple management of staff-only content and related functionality such as user roles in WordPress.",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "Doubleedesign\\SimpleDocumentPortal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leesa Ward",
+            "email": "leesa@doubleedesign.com.au"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+    }
+}

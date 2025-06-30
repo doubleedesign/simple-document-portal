@@ -1,0 +1,30 @@
+<?php
+/**
+ * Plugin Name:       Simple Document Portal
+ * Description:       Simple management of restricted files. NOTE: This plugin requires the ability to create and write to a directory called "documents" that is one level above the web root on your server.
+ * Author:            Double-E Design
+ * Author URI:        https://www.doubleedesign.com.au
+ * Version:           1.0
+ * Text Domain:       simple-document-portal
+ * Requires plugins:  advanced-custom-fields-pro
+ */
+
+require_once(__DIR__ . '/vendor/autoload.php');
+use Doubleedesign\SimpleDocumentPortal\PluginEntrypoint;
+
+new PluginEntrypoint();
+
+function activate_simple_staff_portal(): void {
+	PluginEntrypoint::activate();
+}
+function deactivate_simple_staff_portal(): void {
+	PluginEntrypoint::deactivate();
+}
+function uninstall_simple_staff_portal(): void {
+	PluginEntrypoint::uninstall();
+}
+register_activation_hook(__FILE__, 'activate_simple_staff_portal');
+register_deactivation_hook(__FILE__, 'deactivate_simple_staff_portal');
+register_uninstall_hook(__FILE__, 'uninstall_simple_staff_portal');
+
+
