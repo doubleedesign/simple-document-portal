@@ -1,1 +1,4 @@
 node_modules
+/tests/.phpunit.result.cache
+vendor/**/*
+!vendor/composer/*

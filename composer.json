@@ -1,10 +1,11 @@
 {
     "name": "doubleedesign/simple-staff-portal",
-    "description": "Simple management of staff-only content and related functionality such as user roles in WordPress.",
+    "description": "Simple management of staff/member-only content and related functionality in WordPress.",
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "Doubleedesign\\SimpleDocumentPortal\\": "src/"
+            "Doubleedesign\\SimpleDocumentPortal\\": "src/",
+            "Doubleedesign\\SimpleDocumentPortal\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -16,5 +17,14 @@
     "require": {
     },
     "require-dev": {
-    }
+	    "pestphp/pest": "^3.8",
+	    "laravel/dusk": "^8.3",
+	    "orchestra/testbench": "^10.4",
+	    "php-webdriver/webdriver": "^1.15.2"
+    },
+	"config": {
+		"allow-plugins": {
+			"pestphp/pest-plugin": true
+		}
+	}
 }

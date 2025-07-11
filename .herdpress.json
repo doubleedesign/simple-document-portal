@@ -1,0 +1,22 @@
+{
+	"type": "plugin",
+	"database": {
+		"user": "root",
+		"password": "",
+		"host": "127.0.0.1",
+		"port": 3309
+	},
+	"admin": {
+		"email": "leesa@doubleedesign.com.au",
+		"username": "doubleedesign",
+		"password": "doubleedesign"
+	},
+	"blueprint": {
+		"local": "$PROJECTS_DIR/wp-content-blueprint",
+		"github": "doubleedesign/wp-content-blueprint"
+	},
+	"otherLocalPlugins": "$PROJECTS_DIR/wp-plugins",
+	"wpOrgPlugins": [
+		"simply-disable-comments"
+	]
+}
