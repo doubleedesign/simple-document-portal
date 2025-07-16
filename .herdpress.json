@@ -11,6 +11,32 @@
 		"username": "doubleedesign",
 		"password": "doubleedesign"
 	},
+	"testUsers": [
+		{
+			"email": "editor@example.com",
+			"username": "test-editor",
+			"password": "test-editor",
+			"role": "editor"
+		},
+		{
+			"email": "subscriber@example.com",
+			"username": "test-subscriber",
+			"password": "test-subscriber",
+			"role": "subscriber"
+		},
+		{
+			"email": "member@example.com",
+			"username": "test-member",
+			"password": "test-member",
+			"role": "portal_member"
+		},
+		{
+			"email": "rest@example.com",
+			"username": "rest-api-test-account",
+			"password": "rest-api-test-account",
+			"role": "subscriber"
+		}
+	],
 	"blueprint": {
 		"local": "$PROJECTS_DIR/wp-content-blueprint",
 		"github": "doubleedesign/wp-content-blueprint"

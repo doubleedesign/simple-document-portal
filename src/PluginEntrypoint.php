@@ -28,10 +28,13 @@ class PluginEntrypoint {
     public static function activate(): void {
         self::create_protected_directory();
         flush_rewrite_rules();
+        UserRoles::create_roles();
+        UserRoles::reassign_users_roles();
         UserPermissions::map_permissions_to_existing_roles();
     }
 
     public static function deactivate(): void {
+        UserRoles::delete_roles();
         UserPermissions::reset_default_capabilities();
 
         // Remove stored directory location from options table
@@ -39,6 +42,7 @@ class PluginEntrypoint {
     }
 
     public static function uninstall() {
+        UserRoles::revert_users_roles(true);
         // TODO Clear warning and confirmation that uninstalling will delete the documents
         // TODO Implement deletion
     }
