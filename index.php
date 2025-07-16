@@ -9,22 +9,20 @@
  * Requires plugins:  advanced-custom-fields-pro
  */
 
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once __DIR__ . '/vendor/autoload.php';
 use Doubleedesign\SimpleDocumentPortal\PluginEntrypoint;
 
 new PluginEntrypoint();
 
 function activate_simple_staff_portal(): void {
-	PluginEntrypoint::activate();
+    PluginEntrypoint::activate();
 }
 function deactivate_simple_staff_portal(): void {
-	PluginEntrypoint::deactivate();
+    PluginEntrypoint::deactivate();
 }
 function uninstall_simple_staff_portal(): void {
-	PluginEntrypoint::uninstall();
+    PluginEntrypoint::uninstall();
 }
 register_activation_hook(__FILE__, 'activate_simple_staff_portal');
 register_deactivation_hook(__FILE__, 'deactivate_simple_staff_portal');
 register_uninstall_hook(__FILE__, 'uninstall_simple_staff_portal');
-
-

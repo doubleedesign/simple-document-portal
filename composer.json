@@ -14,13 +14,12 @@
             "email": "leesa@doubleedesign.com.au"
         }
     ],
-    "require": {
-    },
     "require-dev": {
 	    "pestphp/pest": "^3.8",
 	    "laravel/dusk": "^8.3",
 	    "orchestra/testbench": "^10.4",
-	    "php-webdriver/webdriver": "^1.15.2"
+	    "php-webdriver/webdriver": "^1.15.2",
+        "laravel/pint": "^1.24"
     },
 	"config": {
 		"allow-plugins": {
