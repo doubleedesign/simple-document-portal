@@ -19,4 +19,9 @@ uses()->beforeEach(function() {
         error_log("Use the command: chromedriver --port=$port");
         exit(1);
     }
-})->in('Browser');
+})->in('E2E');
+
+uses()->beforeEach(function() {
+    $wpPath = getenv('USERPROFILE') . $_ENV['APP_DIR'];
+    $_ENV['WP_PATH'] = $wpPath;
+})->in('Integration');

@@ -72,3 +72,17 @@ Or a specific directory:
 ```powershell
 ./vendor/bin/pint src
 ```
+
+### Miscellany
+
+### Avoid committing changes to .env
+
+```powershell
+git update-index --skip-worktree .env
+```
+
+If you need to temporarily track and commit changes to `.env` such as adding new keys, you can run:
+
+```powershell
+git update-index --no-skip-worktree .env
+```

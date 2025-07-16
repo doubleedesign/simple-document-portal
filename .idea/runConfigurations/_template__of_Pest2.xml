@@ -3,6 +3,7 @@
     <option name="envFilePaths">
       <list>
         <option value="$PROJECT_DIR$/tests/.env.dusk.local" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
     <option name="pestRunnerSettings">

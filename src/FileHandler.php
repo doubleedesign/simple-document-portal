@@ -3,6 +3,7 @@ namespace Doubleedesign\SimpleDocumentPortal;
 use WP_Query;
 
 class FileHandler extends FileUploadHandler {
+    // TODO: Do we need to handle attachment post access via the REST API?
 
     public function __construct() {
         parent::__construct();
