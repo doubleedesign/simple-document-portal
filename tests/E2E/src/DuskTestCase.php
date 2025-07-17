@@ -1,12 +1,13 @@
 <?php
-namespace Doubleedesign\SimpleDocumentPortal\Tests;
+namespace Doubleedesign\SimpleDocumentPortal\Tests\E2E;
 
 use Laravel\Dusk\Browser;
 use Orchestra\Testbench\TestCase;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\{DesiredCapabilities, RemoteWebDriver};
+use Closure;
 
-abstract class DuskTestCase extends TestCase {
+class DuskTestCase extends TestCase {
     protected function setUp(): void {
         parent::setUp();
     }
@@ -32,7 +33,7 @@ abstract class DuskTestCase extends TestCase {
     /**
      * Run a browser test with Laravel Dusk's Browser wrapper.
      */
-    protected function browse(callable $callback): void {
+    public function browse(Closure $callback): void {
         $browser = new Browser($this->driver());
 
         try {

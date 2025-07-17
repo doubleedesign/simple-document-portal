@@ -14,15 +14,15 @@ use Doubleedesign\SimpleDocumentPortal\PluginEntrypoint;
 
 new PluginEntrypoint();
 
-function activate_simple_staff_portal(): void {
+function activate_simple_document_portal(): void {
     PluginEntrypoint::activate();
 }
-function deactivate_simple_staff_portal(): void {
+function deactivate_simple_document_portal(): void {
     PluginEntrypoint::deactivate();
 }
-function uninstall_simple_staff_portal(): void {
+function uninstall_simple_document_portal(): void {
     PluginEntrypoint::uninstall();
 }
-register_activation_hook(__FILE__, 'activate_simple_staff_portal');
-register_deactivation_hook(__FILE__, 'deactivate_simple_staff_portal');
-register_uninstall_hook(__FILE__, 'uninstall_simple_staff_portal');
+register_activation_hook(__FILE__, 'activate_simple_document_portal');
+register_deactivation_hook(__FILE__, 'deactivate_simple_document_portal');
+register_uninstall_hook(__FILE__, 'uninstall_simple_document_portal');

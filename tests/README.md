@@ -10,6 +10,18 @@ composer install
 
 Setup requirements for specific test types are described below.
 
+## Setup
+
+### Custom Pest runner file
+A custom Pest runner file is included in `.tests/pestrunner` because the E2E tests have their own Pest instance and configuration (to prevent its dependencies being loaded for other tests, because that causes conflicts such as Laravel helpers having the same names as WordPress functions and being loaded first). All it does is determine whether this is an E2E test (defined by using the `phpunit.xml` config file from the
+`./tests/e2e` directory) and pipes the command to the correct Pest binary. For all other tests, it uses the default Pest binary from the project root. PhpStorm users should specify this file as the `Path to Pest executable` in `Settings -> PHP -> Test Frameworks -> Pest`.
+
+PhpStorm Run configurations are included for convenience, including a Pest template that tells it to:
+- find environment variables in `./tests/env.dusk.local` and `/.env`
+- run `StartTest.php` first when running all integration or E2E tests.
+
+Alternatively, you can run tests from the command line directly - you will just need to specify the environment variables another way.
+
 ## Unit tests
 
 TBC
@@ -36,6 +48,12 @@ These use a range of methods to check results of the plugin's operations in a mo
 
 These use a real browser to test the plugin's functionality in a minimal WordPress installation as a typical user would.
 
+### Structure
+
+The seemingly redundant `./tests/E2E/tests/E2E` structure is due to Pest expecting test files to be in a `tests/` directory, with test types within that. The `./tests/E2E` directory has its own Pest instance and configuration designed to ensure that the Laravel libraries used for browser testing are not loaded for other types of tests, so we have to treat `./tests/E2E` as the Pest project root for those tests (as opposed to the overall project root used for the other tests).
+
+The custom test case class, `DuskTestCase`, is in `src` so we can use PSR-4 autoloading for it. Pest tests themselves should not be namespaced, so that's...that's kinda what's going on with the structure there.
+
 ### Prerequisites
 
 - Local WordPress installation with:
@@ -48,11 +66,7 @@ See the [Appendices](#appendices) section below for more information on setting 
 
 ## Running the tests
 
-PhpStorm Run configurations are included for convenience, including a Pest template that tells it to:
-- find environment variables in `./tests/env.dusk.local` and `/.env`
-- run `StartTest.php` first when running all integration or E2E tests.
-
-Alternatively, you can run tests from the command line directly - you will just need to specify the environment variables another way.
+As mentioned above, there are PhpStorm Run configurations included for convenience, but you can also run them from the command line directly. Ensure for E2E tests you are using the `./tests/E2E/phpunit.xml` config file and the custom Pest runner file `.tests/pestrunner` (instead of `./vendor/bin/pest`).
 
 Before running the E2E tests, start ChromeDriver in a separate terminal window:
 

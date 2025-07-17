@@ -1,0 +1,63 @@
+#!/usr/bin/env php
+<?php
+
+$cwd = getcwd();
+$argv = $argv ?? [];
+$processedArgs = $argv;
+
+if (in_array('--version', $processedArgs, true) || in_array('-V', $processedArgs, true)) {
+    $output = shell_exec('php vendor/bin/pest --version');
+    $output = trim($output);
+    $output = str_replace('Pest Testing Framework', '', $output);
+    // Strip ANSI escape sequences
+    $clean = preg_replace('/\e\[[0-9;]*m/', '', $output);
+
+    echo trim($clean);
+    exit(0);
+}
+
+// Handle filter args (e.g., specific test methods)
+if (in_array('--filter', $argv) || in_array('-f', $argv)) {
+    // Get the next argument after --filter or -f, which will be the actual filter value
+    $filterIndex = array_search('--filter', $argv) ?? array_search('-f', $argv);
+    $filter = $argv[$filterIndex + 1] ?? '';
+    // Fix the regex to work in Windows
+    $escapedFilter = addcslashes($filter, '\\'); // escape every backslash
+    $escapedFilter = '"' . $escapedFilter . '"'; // wrap in double quotes
+    $processedArgs[$filterIndex + 1] = $escapedFilter;
+}
+
+// Get the phpunit.xml file path from the args, so if E2E/phpunit.xml is specified,
+// we know we want to use the E2E Pest instance not the root one (to prevent E2E dependencies being loaded for other test types).
+$isE2E = false;
+foreach ($argv as $arg) {
+    // Is E2E config file specified?
+    if (str_contains($arg, 'E2E\phpunit.xml')) {
+        $isE2E = true;
+    }
+    // Is the test file in the E2E directory? (This covers running from the gutter in PhpStorm, which will use the default Pest template)
+    if (str_contains($arg, 'E2E\tests\E2E')) {
+        $isE2E = true;
+    }
+}
+
+// Replace the config file with the E2E one if it is using the root one
+$processedArgs = array_map(function($arg) use ($isE2E) {
+    if ($isE2E && str_contains($arg, 'phpunit.xml') && !str_contains($arg, 'E2E\phpunit.xml')) {
+        return str_replace('phpunit.xml', 'E2E\phpunit.xml', $arg);
+    }
+
+    return $arg;
+}, $processedArgs);
+
+$argsString = join(' ', $processedArgs);
+
+if ($isE2E) {
+    // We assume working directory is the project root. Log $cwd to troubleshoot
+    print_r("Running Pest in E2E mode from working directory $cwd\n");
+    print_r("See the custom Pest runner file in $cwd\pestrunner for details.\n\n");
+    passthru("php tests/E2E/vendor/bin/pest $argsString");
+}
+else {
+    passthru("php vendor/bin/pest $argsString");
+}

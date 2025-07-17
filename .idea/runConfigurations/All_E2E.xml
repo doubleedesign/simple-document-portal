@@ -1,0 +1,25 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="All E2E" type="PestRunConfigurationType">
+    <CommandLine workingDirectory="$PROJECT_DIR$/">
+      <envFiles>
+        <find>$PROJECT_DIR$/.env</find>
+        <find>$PROJECT_DIR$/tests/E2E/.env.dusk.local</find>
+      </envFiles>
+    </CommandLine>
+    <option name="envFilePaths">
+      <list>
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/tests/E2E/.env.dusk.local" />
+      </list>
+    </option>
+    <option name="pestRunnerSettings">
+      <PestRunner configuration_file="$PROJECT_DIR$/tests/E2E/phpunit.xml" directory="$PROJECT_DIR$/tests/E2E/tests" method="" use_alternative_configuration_file="true" />
+    </option>
+    <option name="runnerSettings">
+      <PhpTestRunnerSettings configuration_file="$PROJECT_DIR$/tests/E2E/phpunit.xml" directory="$PROJECT_DIR$/tests/E2E/tests" method="" use_alternative_configuration_file="true" />
+    </option>
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="StartTest.php" run_configuration_type="PestRunConfigurationType" />
+    </method>
+  </configuration>
+</component>

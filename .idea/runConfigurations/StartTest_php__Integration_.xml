@@ -1,22 +1,22 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="true" type="PestRunConfigurationType">
+  <configuration default="false" name="StartTest.php (Integration)" type="PestRunConfigurationType">
     <CommandLine workingDirectory="$PROJECT_DIR$">
       <envFiles>
-        <find>$PROJECT_DIR$/tests/.env.dusk.local</find>
         <find>$PROJECT_DIR$/.env</find>
+        <find>$PROJECT_DIR$/tests/Integration/.env</find>
       </envFiles>
     </CommandLine>
     <option name="envFilePaths">
       <list>
-        <option value="$PROJECT_DIR$/tests/.env.dusk.local" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/tests/Integration/.env" />
       </list>
     </option>
     <option name="pestRunnerSettings">
-      <PestRunner method="" />
+      <PestRunner file="$PROJECT_DIR$/tests/Integration/StartTest.php" method="" scope="File" />
     </option>
     <option name="runnerSettings">
-      <PhpTestRunnerSettings method="" />
+      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/Integration/StartTest.php" method="" scope="File" />
     </option>
     <method v="2" />
   </configuration>

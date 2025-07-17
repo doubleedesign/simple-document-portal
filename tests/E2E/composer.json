@@ -1,0 +1,27 @@
+{
+	"name": "doubleedesign/simple-document-portal--e2e-tests",
+	"private": true,
+	"type": "project",
+	"authors": [
+		{
+			"name": "Leesa Ward",
+			"email": "leesa@doubleedesign.com.au"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Doubleedesign\\SimpleDocumentPortal\\Tests\\E2E\\": "src/"
+		}
+	},
+	"require-dev": {
+		"pestphp/pest": "^3.8",
+		"laravel/dusk": "^8.3",
+		"orchestra/testbench": "^10.4",
+		"php-webdriver/webdriver": "^1.15.2"
+	},
+	"config": {
+		"allow-plugins": {
+			"pestphp/pest-plugin": true
+		}
+	}
+}

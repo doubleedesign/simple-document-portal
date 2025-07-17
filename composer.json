@@ -1,26 +1,39 @@
 {
-    "name": "doubleedesign/simple-staff-portal",
-    "description": "Simple management of staff/member-only content and related functionality in WordPress.",
-    "type": "wordpress-plugin",
-    "autoload": {
-        "psr-4": {
-            "Doubleedesign\\SimpleDocumentPortal\\": "src/",
-            "Doubleedesign\\SimpleDocumentPortal\\Tests\\": "tests/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Leesa Ward",
-            "email": "leesa@doubleedesign.com.au"
-        }
-    ],
-    "require-dev": {
-	    "pestphp/pest": "^3.8",
-	    "laravel/dusk": "^8.3",
-	    "orchestra/testbench": "^10.4",
-	    "php-webdriver/webdriver": "^1.15.2",
-        "laravel/pint": "^1.24"
-    },
+	"name": "doubleedesign/simple-document-portal",
+	"description": "Simple management of staff/member-only content and related functionality in WordPress.",
+	"type": "wordpress-plugin",
+	"authors": [
+		{
+			"name": "Leesa Ward",
+			"email": "leesa@doubleedesign.com.au"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Doubleedesign\\SimpleDocumentPortal\\": "src/"
+		}
+	},
+	"require-dev": {
+		"laravel/pint": "^1.24",
+		"pestphp/pest": "^3.8",
+		"antecedent/patchwork": "^2.2"
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"composer dump-autoload -o",
+			"@subproject-install"
+		],
+		"post-update-cmd": [
+			"composer dump-autoload -o",
+			"@subproject-update"
+		],
+		"subproject-install": [
+			"cd tests/E2E && composer install && composer dump-autoload -o"
+		],
+		"subproject-update": [
+			"cd tests/E2E && composer update && composer dump-autoload -o"
+		]
+	},
 	"config": {
 		"allow-plugins": {
 			"pestphp/pest-plugin": true
