@@ -13,9 +13,6 @@
     <option name="pestRunnerSettings">
       <PestRunner file="$PROJECT_DIR$/tests/Integration/tests/Integration/StartTest.php" method="" scope="File" />
     </option>
-    <option name="runnerSettings">
-      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/Integration/tests/Integration/StartTest.php" method="" scope="File" />
-    </option>
     <method v="2" />
   </configuration>
 </component>

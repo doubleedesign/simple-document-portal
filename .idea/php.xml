@@ -215,6 +215,11 @@
       <path value="$PROJECT_DIR$/vendor/pestphp/pest-plugin-arch" />
       <path value="$PROJECT_DIR$/vendor/pestphp/pest-plugin" />
       <path value="$PROJECT_DIR$/vendor/pestphp/pest" />
+      <path value="$PROJECT_DIR$/tests/Unit/vendor/antecedent/patchwork" />
+      <path value="$PROJECT_DIR$/tests/Unit/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/tests/Unit/vendor/brain/monkey" />
+      <path value="$PROJECT_DIR$/tests/Unit/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/tests/Unit/vendor/sirbrillig/spies" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2">
@@ -324,6 +329,7 @@
   </component>
   <component name="PhpUnit">
     <phpunit_settings>
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/tests/Unit/phpunit.xml" custom_loader_path="$PROJECT_DIR$/tests/Unit/vendor/autoload.php" paratest_path="$PROJECT_DIR$/tests/Unit/vendor/bin/paratest_for_phpstorm" use_configuration_file="true" />
       <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/tests/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" paratest_path="$PROJECT_DIR$/vendor/bin/paratest_for_phpstorm" phpunit_phar_path="" use_configuration_file="true" />
     </phpunit_settings>
   </component>

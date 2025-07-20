@@ -13,9 +13,6 @@
     <option name="pestRunnerSettings">
       <PestRunner file="$PROJECT_DIR$/tests/E2E/tests/E2E/StartTest.php" method="" scope="File" />
     </option>
-    <option name="runnerSettings">
-      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/E2E/tests/E2E/StartTest.php" method="" scope="File" />
-    </option>
     <method v="2" />
   </configuration>
 </component>

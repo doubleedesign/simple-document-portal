@@ -7,8 +7,10 @@
     <php>
         <env name="APP_DIR" value="/PhpStormProjects/docportal/"/>
         <env name="XDEBUG_MODE" value="coverage"/>
+        <env name="APP_ENV" value="dusk.local"/>
+        <env name="APP_URL" value="http://docportal.test"/>
     </php>
-    <coverage pathCoverage="true">
+    <coverage>
         <report>
             <html outputDirectory="phpstorm-coverage-html"/>
         </report>

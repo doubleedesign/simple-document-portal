@@ -7,9 +7,11 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\Tests\E2E\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Unit/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Integration/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Unit/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Integration/vendor/brianium/paratest" />
@@ -128,6 +130,11 @@
       <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/ta-tikoma/phpunit-architecture-test" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/antecedent/patchwork" />
+      <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/brain/monkey" />
+      <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/mockery/mockery" />
+      <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/sirbrillig/spies" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brianium/paratest" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fidry/cpu-core-counter" />

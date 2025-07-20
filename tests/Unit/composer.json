@@ -9,7 +9,9 @@
 		}
 	],
 	"require-dev": {
-		"pestphp/pest": "^3.8"
+		"pestphp/pest": "^3.8",
+		"brain/monkey": "^2.6",
+		"sirbrillig/spies": "^1.10"
 	},
 	"config": {
 		"allow-plugins": {

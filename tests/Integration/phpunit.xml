@@ -14,7 +14,7 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <coverage pathCoverage="true">
+    <coverage>
         <report>
             <html outputDirectory="coverage-html"/>
         </report>
