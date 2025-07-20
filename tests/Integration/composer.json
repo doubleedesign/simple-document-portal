@@ -1,0 +1,19 @@
+{
+	"name": "doubleedesign/simple-document-portal--integration-tests",
+	"private": true,
+	"type": "project",
+	"authors": [
+		{
+			"name": "Leesa Ward",
+			"email": "leesa@doubleedesign.com.au"
+		}
+	],
+	"require-dev": {
+		"pestphp/pest": "^3.8"
+	},
+	"config": {
+		"allow-plugins": {
+			"pestphp/pest-plugin": true
+		}
+	}
+}

@@ -2,6 +2,23 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          colors="true"
-         bootstrap="bootstrap.php"
 >
+    <php>
+        <env name="APP_ENV" value="dusk.local"/>
+        <env name="APP_URL" value="http://docportal.test"/>
+        <env name="DUSK_HEADLESS_DISABLED" value="false"/>
+        <env name="DUSK_WEBDRIVER_PORT" value="9515"/>
+        <env name="DUSK_WEBDRIVER_URL" value="http://localhost:9515"/>
+    </php>
+    <testsuites>
+        <testsuite name="E2E">
+            <directory suffix="Test.php">tests/E2E</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <exclude>
+            <directory>vendor</directory>
+            <directory>node_modules</directory>
+        </exclude>
+    </source>
 </phpunit>

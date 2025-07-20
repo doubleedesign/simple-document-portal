@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="StartTest.php (e2e)" type="PestRunConfigurationType">
+  <configuration default="false" name="E2E" type="PestRunConfigurationType">
     <CommandLine workingDirectory="$PROJECT_DIR$">
       <envFiles>
         <find>$PROJECT_DIR$/.env</find>
@@ -11,11 +11,13 @@
       </list>
     </option>
     <option name="pestRunnerSettings">
-      <PestRunner file="$PROJECT_DIR$/tests/E2E/tests/E2E/StartTest.php" method="" scope="File" />
+      <PestRunner directory="$PROJECT_DIR$/tests/E2E/tests" method="" />
     </option>
     <option name="runnerSettings">
-      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/E2E/tests/E2E/StartTest.php" method="" scope="File" />
+      <PhpTestRunnerSettings directory="$PROJECT_DIR$/tests/E2E/tests" method="" />
     </option>
-    <method v="2" />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="StartTest.php (e2e)" run_configuration_type="PestRunConfigurationType" />
+    </method>
   </configuration>
 </component>
