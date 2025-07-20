@@ -43,6 +43,7 @@
 	},
 	"otherLocalPlugins": "$PROJECTS_DIR/wp-plugins",
 	"wpOrgPlugins": [
-		"simply-disable-comments"
+		"simply-disable-comments",
+		"classic-editor"
 	]
 }
