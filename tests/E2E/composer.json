@@ -16,7 +16,6 @@
 	"require-dev": {
 		"pestphp/pest": "^3.8",
 		"laravel/dusk": "^8.3",
-		"orchestra/testbench": "^10.4",
 		"php-webdriver/webdriver": "^1.15.2"
 	},
 	"config": {

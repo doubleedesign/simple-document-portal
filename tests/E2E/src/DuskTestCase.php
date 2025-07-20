@@ -2,7 +2,7 @@
 namespace Doubleedesign\SimpleDocumentPortal\Tests\E2E;
 
 use Laravel\Dusk\Browser;
-use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\TestCase;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\{DesiredCapabilities, RemoteWebDriver};
 use Closure;
