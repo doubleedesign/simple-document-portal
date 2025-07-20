@@ -7,24 +7,24 @@
 
 - <details>
 	<summary>Additional prerequisites for integration tests</summary>
-	
+
+  	- WP-CLI installed and available in your PATH
 	- Local WordPress installation with:
 		- the Simple Document Portal plugin installed and active
 		- site URL matching the one in `phpunit.xml` (or update that file)
 		- test user accounts as per the `./herdpress.json` file in the project root
 		- `.env` file in the project root containing an application password for the `rest-api-test-account` user, using key `REST_API_TEST_APPLICATION_PASSWORD=`
 		- ability for the REST API test user to access all the required endpoints in a local environment
-	  - WP-CLI installed and available in your PATH.
 	</details>
 	
 - <details>
 	<summary>Additional prerequisites for E2E tests</summary>
-	
+  
+    - Chrome and ChromeDriver installed and available in your PATH
 	- Local WordPress installation with:
 		- the Simple Document Portal plugin installed and active
 		- site URL matching the one in `phpunit.xml` (or update that file)
 		- test user accounts as per the `./herdpress.json` file in the project root
-	  - Chrome and ChromeDriver installed and available in your PATH (for browser tests).
 	</details>
 
 See the [Appendices](#appendices) section below for more information on setting up your environment and dev site.
