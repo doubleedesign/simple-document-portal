@@ -3,3 +3,6 @@ node_modules
 vendor/**/*
 !vendor/composer/*
 /tests/**/vendor
+/tests/**/coverage*
+/tests/phpstorm-coverage-html
+/tests/**/.cache

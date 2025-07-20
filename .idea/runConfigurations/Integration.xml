@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Integration" type="PestRunConfigurationType">
-    <CommandLine workingDirectory="$PROJECT_DIR$">
+    <CommandLine workingDirectory="$PROJECT_DIR$/">
       <envFiles>
         <find>$PROJECT_DIR$/.env</find>
       </envFiles>
@@ -11,10 +11,7 @@
       </list>
     </option>
     <option name="pestRunnerSettings">
-      <PestRunner directory="$PROJECT_DIR$/tests/Integration/tests" method="" options="--coverage" />
-    </option>
-    <option name="runnerSettings">
-      <PhpTestRunnerSettings directory="$PROJECT_DIR$/tests/Integration/tests" method="" options="--coverage" />
+      <PestRunner directory="$PROJECT_DIR$/tests/Integration/tests" method="" />
     </option>
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="StartTest.php (Integration)" run_configuration_type="PestRunConfigurationType" />

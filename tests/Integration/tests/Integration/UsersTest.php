@@ -2,7 +2,11 @@
 use Doubleedesign\SimpleDocumentPortal\UserPermissions;
 
 beforeEach(function() {
-    require_once $_ENV['WP_PATH'] . '/wp-load.php';
+    if (!getenv('WP_PATH')) {
+        throw new Exception('WP_PATH environment variable is not set. Please set it to the path of your WordPress installation.');
+    }
+
+    require_once getenv('WP_PATH') . '/wp-load.php';
 });
 
 test('Roles with read_documents capability', function() {

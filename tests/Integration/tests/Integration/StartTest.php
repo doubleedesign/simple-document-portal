@@ -7,7 +7,7 @@
 // unless you explicitly configure them to do so.
 
 test('REST API test user exists', function() {
-    $wpPath = $_ENV['WP_PATH']; // Note: this is set dynamically in Pest.php beforeEach() for REST tests
+    $wpPath = getenv('WP_PATH'); // Note: this is set dynamically in Pest.php beforeEach()
     $result = shell_exec("wp user get rest-api-test-account --field=ID --path=$wpPath");
     if (str_contains($result, 'Error')) {
         error_log('REST API test user does not exist. Please create a user with the username "rest-api-test-account" before running the tests.');

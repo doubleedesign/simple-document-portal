@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="true" type="PestRunConfigurationType">
+  <configuration default="true" type="PestRunConfigurationType" singleton="false">
     <CommandLine workingDirectory="$PROJECT_DIR$">
       <envFiles>
         <find>$PROJECT_DIR$/.env</find>
@@ -11,10 +11,7 @@
       </list>
     </option>
     <option name="pestRunnerSettings">
-      <PestRunner method="" />
-    </option>
-    <option name="runnerSettings">
-      <PhpTestRunnerSettings method="" />
+      <PestRunner method="" scope="ConfigurationFile" />
     </option>
     <method v="2" />
   </configuration>

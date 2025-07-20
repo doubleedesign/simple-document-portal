@@ -1,6 +1,6 @@
 # Simple Document Portal
 
-A WordPress plugin to provide access to documents to logged-in users, with a simple interface for uploading and managing them.
+A WordPress plugin to provide access to documents to logged-in users, with a simple interface for uploading and managing them powered by Advanced Custom Fields (ACF) Pro.
 
 ## Features
 

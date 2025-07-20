@@ -3,16 +3,20 @@
          xsi:noNamespaceSchemaLocation="/vendor/phpunit/phpunit/phpunit.xsd"
          colors="true"
          bootstrap="bootstrap.php"
+         cacheDirectory=".cache"
 >
     <php>
         <env name="XDEBUG_MODE" value="coverage"/>
     </php>
-    <testsuites>
-        <testsuite name="E2E">
-            <directory suffix="Test.php">tests/Unit</directory>
-        </testsuite>
-    </testsuites>
+    <coverage>
+        <report>
+            <html outputDirectory="coverage-html"/>
+        </report>
+    </coverage>
     <source>
+        <include>
+            <directory suffix=".php">../../src</directory>
+        </include>
         <exclude>
             <directory>vendor</directory>
             <directory>node_modules</directory>

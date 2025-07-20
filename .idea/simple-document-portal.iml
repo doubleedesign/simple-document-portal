@@ -5,108 +5,13 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/Integration" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\Tests\E2E\" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/tests/E2E" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Unit/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/E2E/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Integration/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/brianium/paratest" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/carbonphp/carbon-doctrine-types" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/doctrine/deprecations" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/doctrine/inflector" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/fidry/cpu-core-counter" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/filp/whoops" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/graham-campbell/result-type" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/guzzlehttp/guzzle" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/guzzlehttp/promises" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/guzzlehttp/psr7" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/bus" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/collections" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/conditionable" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/console" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/container" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/events" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/filesystem" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/macroable" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/pipeline" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/support" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/illuminate/view" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/jean85/pretty-package-versions" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/laravel/dusk" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/laravel/prompts" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/myclabs/deep-copy" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/nesbot/carbon" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/nikic/php-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/nunomaduro/collision" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/nunomaduro/termwind" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/pestphp/pest" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/pestphp/pest-plugin" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/pestphp/pest-plugin-arch" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/pestphp/pest-plugin-mutate" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phar-io/manifest" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phar-io/version" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/php-webdriver/webdriver" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpdocumentor/reflection-common" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpdocumentor/reflection-docblock" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpdocumentor/type-resolver" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpoption/phpoption" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpstan/phpdoc-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpunit/php-code-coverage" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpunit/php-file-iterator" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpunit/php-invoker" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpunit/php-text-template" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpunit/php-timer" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/phpunit/phpunit" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/clock" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/container" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/http-client" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/http-factory" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/http-message" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/log" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/psr/simple-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/ralouphie/getallheaders" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/cli-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/code-unit" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/code-unit-reverse-lookup" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/comparator" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/complexity" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/diff" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/environment" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/exporter" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/global-state" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/lines-of-code" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/object-enumerator" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/object-reflector" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/recursion-context" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/type" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/sebastian/version" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/staabm/side-effects-detector" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/clock" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/console" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/deprecation-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/finder" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/polyfill-ctype" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/polyfill-intl-grapheme" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/polyfill-intl-normalizer" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/polyfill-mbstring" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/polyfill-php80" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/polyfill-php83" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/process" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/service-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/string" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/translation" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/symfony/translation-contracts" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/ta-tikoma/phpunit-architecture-test" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/theseer/tokenizer" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/vlucas/phpdotenv" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/voku/portable-ascii" />
-      <excludeFolder url="file://$MODULE_DIR$/tests/E2E/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Integration/vendor/brianium/paratest" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Integration/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Integration/vendor/doctrine/deprecations" />
@@ -223,6 +128,63 @@
       <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/ta-tikoma/phpunit-architecture-test" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Unit/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/brianium/paratest" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fidry/cpu-core-counter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jean85/pretty-package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nunomaduro/termwind" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pestphp/pest" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pestphp/pest-plugin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pestphp/pest-plugin-arch" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pestphp/pest-plugin-mutate" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/cli-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/complexity" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/staabm/side-effects-detector" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ta-tikoma/phpunit-architecture-test" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

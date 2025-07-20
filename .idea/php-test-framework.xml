@@ -8,6 +8,7 @@
             <local_configuration configuration_file_path="$PROJECT_DIR$/tests/Integration/phpunit.xml" executable_path="$PROJECT_DIR$/tests/Integration/vendor/bin/pest" use_configuration_file="true" />
             <local_configuration configuration_file_path="$PROJECT_DIR$/tests/Unit/phpunit.xml" executable_path="$PROJECT_DIR$/tests/Unit/vendor/bin/pest" use_configuration_file="true" />
             <local_configuration configuration_file_path="$PROJECT_DIR$/tests/E2E/phpunit.xml" executable_path="$PROJECT_DIR$/tests/E2E/vendor/bin/pest" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/tests/phpunit.xml" executable_path="$PROJECT_DIR$/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
           </configurations>
         </settings>
       </tool>
@@ -18,9 +19,7 @@
       <tool tool_name="PHPUnit">
         <cache>
           <versions>
-            <info id="Local\tests/E2E/vendor/autoload.php" version="11.5.15" />
-            <info id="Local\tests/Integration/vendor/autoload.php" version="11.5.15" />
-            <info id="Local\tests/Unit/vendor/autoload.php" version="11.5.15" />
+            <info id="Local\vendor/autoload.php" version="11.5.15" />
           </versions>
         </cache>
       </tool>
@@ -30,6 +29,7 @@
             <info id="Local\tests/E2E/vendor/bin/pest" version="3.8.2" />
             <info id="Local\tests/Integration/vendor/bin/pest" version="3.8.2" />
             <info id="Local\tests/Unit/vendor/bin/pest" version="3.8.2" />
+            <info id="Local\vendor/pestphp/pest/bin/pest" version="3.8.2" />
           </versions>
         </cache>
       </tool>

@@ -83,8 +83,20 @@ Before running the E2E tests, start ChromeDriver in a separate terminal window:
 chromedriver --port=9515
 ```
 
+## Coverage reporting
+
+>**Note** 
+> Ensure you have Xdebug installed and enabled to generate code coverage reports.
+
+The `Unit` and `Integration` test directory "projects" are configured to generate HTML coverage reports by default during normal test runs (the configuration is set up in their respective `phpunit.xml` files). The reports will be generated in the `coverage-html` directory in each folder.
+
+However, the PhpStorm "run with coverage" feature (which is theoretically the same thing but also loads the coverage data directly into the IDE) doesn't work with the subdirectory structure. For this reason, Pest is also installed at the root of the project and there is a root `phpunit.xml` and `Pest.php` which are only used in this scenario. This means there is some duplication of configuration to ensure the required environment variables are available when running tests this way.
+
+Reports generated when using "run with coverage" will be located in the `tests/phpstorm-coverage-html` directory.
 
 ## Appendices
+
+### Local dev environment
 
 <details>
 <summary>Local dev server</summary>
@@ -139,4 +151,40 @@ wp --info
 For portability, non-sensitive and persistent environment variables for the tests, such as the site URL, are stored in the `phpunit.xml` files for each test type. These values are committed to Git.
 
 Sensitive credentials should be stored in the `.env` file in the project root, with only keys committed to Git - not sensitive values.
+</details>
+
+### Troubleshooting
+
+<details>
+<summary>PhpStorm "cannot find interpreter" error when running with coverage</summary>
+PhpStorm's Pest integration doesn't understand the subdirectory structure in this context (no idea why it does for regular test runs, but I digress) so it doesn't load the configuration we'd normally expect it to. For this reason, Pest is a dev dependency in the root `composer.json` file as well, and there are minimal `phpunit.xml` and `Pest.php` files in `./tests/` to be used in this context.
+</details>
+
+<details>
+<summary>Unable to create test case for test file at [file path], namespace P\; ...</summary>
+This error occurs because your test is not in a location that Pest expects to find tests, so it's misinterpreting what your file is (note: Pest test files themselves should not be namespaced). They should be in `tests/TestType` directories, where in our case `TestType` is one of `Unit`, `Integration`, or `E2E`. With the subfolder structure used for this project, that means a double-up e.g., `tests/Unit/tests/Unit/TestFile.php`.
+</details>
+
+<details>
+	<summary>Other Pest or PHPUnit errors</summary>
+
+Because this project has multiple Composer projects within it that each contain a Pest installation - including one in the root - keep an eye on version mismatches when updating dependencies. For example if you end up with a different version of Pest or PHPUnit in the root than in one of the test directories, you may get inconsistent behaviour between normal test runs and "run with coverage" in PhpStorm.
+
+And in general, Pest requires specific PHPUnit version ranges, which can mean that the latest version of Pest is not compatible with the latest version of PHPUnit.
+
+</details>
+
+<details>
+<summary>"Cannot load Xdebug - it was already loaded" when running tests with PhpStorm</summary>
+Go to `Settings -> PHP` and next to the interpreter you are using, click the `...` button to see its details. If an Xdebug version is listed in the top section (i.e., is auto-detected), ensure the "Debugger extension" field is empty. 
+</details>
+
+<details>
+<summary>Other PhpStorm issues</summary>
+
+Some general places to look and things to do if you have issues with PhpStorm:
+- Ensure the test directories are set up as separate Composer projects in `Settings -> PHP -> Composer files`, but the root `composer.json` is listed as the "main" one (so you should have four in total)
+- Ensure PhpStorm is using the same PHP interpreter as your terminal
+- In `Settings -> PHP`, in the `PHP Runtime` tab, scroll down and click "sync extensions with interpreter" to ensure that your CLI and PhpStorm are working with the same settings
+- In `Settings -> PHP -> Test Frameworks`, ensure the paths to the Pest executables and default configuration files are correct for each test type (there should be a configuration for each test type and one for the root; the latter is only used for "run with coverage").
 </details>

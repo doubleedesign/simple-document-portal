@@ -13,9 +13,6 @@
     <option name="pestRunnerSettings">
       <PestRunner directory="$PROJECT_DIR$/tests/E2E/tests" method="" />
     </option>
-    <option name="runnerSettings">
-      <PhpTestRunnerSettings directory="$PROJECT_DIR$/tests/E2E/tests" method="" />
-    </option>
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="StartTest.php (e2e)" run_configuration_type="PestRunConfigurationType" />
     </method>
