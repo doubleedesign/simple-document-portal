@@ -220,6 +220,7 @@
       <path value="$PROJECT_DIR$/tests/Unit/vendor/brain/monkey" />
       <path value="$PROJECT_DIR$/tests/Unit/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/tests/Unit/vendor/sirbrillig/spies" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpcov" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2">

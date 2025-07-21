@@ -11,6 +11,7 @@
     <coverage>
         <report>
             <html outputDirectory="coverage-html"/>
+            <php outputFile="../phpcov/source/unit-coverage.cov"/>
         </report>
     </coverage>
     <source>

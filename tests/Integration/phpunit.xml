@@ -17,15 +17,12 @@
     <coverage>
         <report>
             <html outputDirectory="coverage-html"/>
+            <php outputFile="../phpcov/source/integration-coverage.cov"/>
         </report>
     </coverage>
     <source>
         <include>
             <directory suffix=".php">../../src</directory>
         </include>
-        <exclude>
-            <directory>vendor</directory>
-            <directory>node_modules</directory>
-        </exclude>
     </source>
 </phpunit>

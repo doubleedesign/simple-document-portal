@@ -6,3 +6,4 @@ vendor/**/*
 /tests/**/coverage*
 /tests/phpstorm-coverage-html
 /tests/**/.cache
+/tests/phpcov

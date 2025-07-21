@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Unit + integration coverage" type="CompoundRunConfigurationType">
+    <toRun name="Integration" type="PestRunConfigurationType" />
+    <toRun name="Unit" type="PestRunConfigurationType" />
+    <toRun name="Merge coverage reports" type="PowerShellRunType" />
+    <method v="2" />
+  </configuration>
+</component>
