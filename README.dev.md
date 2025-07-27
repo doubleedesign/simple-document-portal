@@ -10,11 +10,13 @@ Install dependencies via Composer:
 composer install
 ```
 
-This and `comoser update` will install the dependencies listed in `composer.json` and then go into the test directories and do the same.
-
-At the time of writing, there are no Composer dependencies required for production so the majority of the `vendor` directory does not need to be uploaded to your live site - only `vendor/composer` and `vendor/autoload.php` do.
+This and `comoser update` will install the dependencies listed in `composer.json` and then go into the test directories and do the same. When preparing for production, you don't want to take the testing dependencies with you.
 
 One way you can make sure you have only what you need is by deleting the `vendor` directory and running:
+
+```powershell
+composer install --no-dev
+```
 
 ```powershell
 composer dump-autoload -o

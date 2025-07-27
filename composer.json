@@ -13,6 +13,9 @@
 			"Doubleedesign\\SimpleDocumentPortal\\": "src/"
 		}
 	},
+	"require": {
+		"doubleedesign/comet-responsive-panels": "dev-main"
+	},
 	"require-dev": {
 		"laravel/pint": "^1.24",
 		"pestphp/pest": "^3.8",
