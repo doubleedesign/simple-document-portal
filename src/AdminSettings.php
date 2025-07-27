@@ -5,7 +5,7 @@ namespace Doubleedesign\SimpleDocumentPortal;
 class AdminSettings {
 
     public function __construct() {
-        add_action('acf/init', [$this, 'create_admin_settings_screen'], 6);
+        add_action('acf/init', [$this, 'create_admin_settings_screen'], 30);
         add_action('acf/include_fields', [$this, 'add_general_portal_settings'], 10, 0);
         add_action('acf/include_fields', [$this, 'add_access_settings'], 10, 0);
         add_filter('esc_html', [$this, 'allow_view_portal_button'], 10, 2);

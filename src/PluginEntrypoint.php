@@ -12,10 +12,13 @@ class PluginEntrypoint {
 
     public function __construct() {
         new Documents();
+        new Folders();
         new FileHandler();
         new ScheduledActions();
 
         if (is_admin()) {
+            new DocumentsAdmin();
+            new FoldersAdmin();
             new AdminUI();
             new AdminSettings();
             new BulkUploader();

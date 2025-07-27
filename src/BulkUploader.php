@@ -10,7 +10,7 @@ class BulkUploader extends FileUploadHandler {
         // Redirect bulk file uploads to the protected directory
         add_filter('acf/upload_prefilter/name=document_files_to_upload', [$this, 'intercept_upload'], 10, 3);
 
-        add_action('acf/init', [$this, 'create_bulk_upload_screen'], 5);
+        add_action('acf/init', [$this, 'create_bulk_upload_screen'], 10);
         add_action('acf/include_fields', [$this, 'add_bulk_upload_fields'], 10, 0);
         add_action('gettext', [$this, 'update_button_text'], 10, 2);
         add_action('acf/save_post', [$this, 'run_bulk_upload'], 10, 1);
