@@ -13,7 +13,7 @@ $folders = get_terms([
     'hide_empty' => false,
 ]);
 
-$panels = new ResponsivePanels([], [new ResponsivePanel(['title' => "Test panel"], [new PreprocessedHtml('<h1>Documents</h1>')])]);
+$panels = new ResponsivePanels(['breakpoint' => get_option('options_portal_layout_layout_switch_breakpoint') . 'px' ?? '768px'], [new ResponsivePanel(['title' => "Test panel"], [new PreprocessedHtml('<h1>Documents</h1>')])]);
 $panels->render();
 
 get_footer();

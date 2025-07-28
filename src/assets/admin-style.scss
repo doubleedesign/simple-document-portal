@@ -123,6 +123,69 @@ body.wp-admin.term-php {
 	}
 }
 
+.acf-field .acf-label {
+	&:not(:has(.description)) {
+		margin-bottom: 0;
+	}
+
+	label {
+		font-weight: bold;
+	}
+
+	.description {
+		margin-top: 0;
+	}
+}
+
+.acf-field-message {
+
+	.acf-input {
+		p:first-child {
+			margin-top: 0;
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+#acf-group_simple-document-portal__general-settings {
+	.acf-field-layout-switch-breakpoint {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(2, auto);
+		padding: 0.5rem;
+
+		&:before {
+			display: none;
+		}
+
+		.acf-label {
+			display: contents;
+
+			label {
+				grid-row: span 2;
+				grid-column: span 1;
+				align-content: center;
+			}
+
+			.description {
+				order: 3;
+				grid-column: 1 / -1;
+				padding-block-start: 0.25rem;
+			}
+		}
+
+		.acf-input {
+			grid-column: span 4;
+			width: unset;
+			padding: 0;
+		}
+	}
+}
+
 #acf-group_folder-management-fields .acf-field-repeater.acf-field-folders {
 	// Hide the index column and hence row reordering, because it's going to be ignored on save.
 	// :first-child keeps the add/delete row buttons available.

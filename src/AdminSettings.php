@@ -97,6 +97,42 @@ class AdminSettings {
                     'prepend'           => '',
                     'append'            => '',
                 ),
+                array(
+                    'key'               => 'field_6886fadbeabc8',
+                    'label'             => 'Portal layout',
+                    'name'              => 'portal_layout',
+                    'aria-label'        => '',
+                    'type'              => 'group',
+                    'instructions'      => '',
+                    'required'          => 0,
+                    'conditional_logic' => 0,
+                    'wrapper'           => array(
+                        'width' => '',
+                        'class' => '',
+                        'id'    => '',
+                    ),
+                    'layout'     => 'row',
+                    'sub_fields' => array(
+                        array(
+                            'key'               => 'field_layout_switch_breakpoint',
+                            'label'             => 'Layout switch breakpoint',
+                            'name'              => 'layout_switch_breakpoint',
+                            'type'              => 'number',
+                            'instructions'      => 'The document folders will be displayed as an "accordion" unless there is at least this much available space, in which case a "tabs" layout will be used. Use 0 to always show tabs, or a very large number (larger than the maximum available container width you expect) to always show an accordion. Note: This may have no effect if your theme is overriding the template provided by the plugin.',
+                            'required'          => 0,
+                            'wrapper'           => array(
+                                'width' => '',
+                                'class' => '',
+                                'id'    => '',
+                            ),
+                            'default_value'     => 768,
+                            'min'               => 0,
+                            'max'               => 5000,
+                            'step'              => 1,
+                            'append'            => 'pixels',
+                        ),
+                    ),
+                ),
             ),
             'location'              => array(
                 array(
