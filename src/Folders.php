@@ -64,10 +64,12 @@ class Folders {
             return $term;
         }
 
-        // Do not modify if on the admin screen with the list table of all folders, as there is a separate column for the prefix
+        // Do not modify if on the admin screen with the list table of all folders (if using WP default),
+        // or the ACF options page for folders,
+        // as there is a separate column for the prefix
         if (is_admin()) {
             $screen_id = WP_Screen::get()->id ?? '';
-            if ($screen_id === 'edit-folder') {
+            if ($screen_id === 'edit-folder' || $screen_id === 'document_page_folders') {
                 return $term;
             }
         }

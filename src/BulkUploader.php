@@ -125,18 +125,17 @@ class BulkUploader extends FileUploadHandler {
 
     public function run_bulk_upload($post_id): void {
         // Ensure we are only responding to the bulk upload POST request
-        if (!is_admin() || $post_id != 'options' || !isset($_POST['acf']['field_document_files_to_upload'])) {
-            return;
-        }
+        // Note: We can't do a negative check and return to bail early here, because that will bail early for other options pages
+        if (is_admin() && ($post_id === 'options' && isset($_POST['acf']['field_document_files_to_upload']))) {
+            $file_ids = $_POST['acf']['field_document_files_to_upload'];
+            if (is_array($file_ids)) {
+                $folder_id = isset($_POST['acf']['field_document_folder']) ? (int)$_POST['acf']['field_document_folder'] : null;
+                $this->create_document_posts($file_ids, $folder_id);
+            }
 
-        $file_ids = $_POST['acf']['field_document_files_to_upload'];
-        if (is_array($file_ids) && !empty($file_ids)) {
-            $folder_id = isset($_POST['acf']['field_document_folder']) ? (int)$_POST['acf']['field_document_folder'] : null;
-            $this->create_document_posts($file_ids, $folder_id);
+            // Clear the uploader (gallery) field value after processing, so the uploaded files are not processed again
+            update_field('field_document_files_to_upload', [], 'options');
         }
-
-        // Clear the uploader (gallery) field value after processing, so the uploaded files are not processed again
-        update_field('field_document_files_to_upload', [], 'options');
     }
 
     public function create_document_posts(array $file_ids, ?int $folder_id): void {

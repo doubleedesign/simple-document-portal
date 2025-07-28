@@ -122,3 +122,27 @@ body.wp-admin.term-php {
 		order: -1;
 	}
 }
+
+#acf-group_folder-management-fields .acf-field-repeater.acf-field-folders {
+	// Hide the index column and hence row reordering, because it's going to be ignored on save.
+	// :first-child keeps the add/delete row buttons available.
+	.acf-row-handle:first-child {
+		display: none;
+		pointer-events: none;
+	}
+
+	// Remove "Add row" from the repeater rows, because ordering will be ignored anyway - just have users add them to the bottom
+	.acf-row-handle {
+		[data-event="add-row"] {
+			display: none;
+			pointer-events: none;
+		}
+	}
+}
+
+// We can't disable certain fields that we don't want editable, because they won't be submitted for custom processing.
+// readonly works, but appearance is still potentially confusing, so let's make them look disabled and further prevent interaction with styling.
+#acf-group_folder-management-fields .acf-field input[readonly="readonly"] {
+	pointer-events: none;
+	opacity: 0.5;
+}

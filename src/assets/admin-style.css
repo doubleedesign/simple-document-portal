@@ -92,4 +92,18 @@ body.wp-admin.term-php #acf-form-data + h2 {
   order: -1;
 }
 
+#acf-group_folder-management-fields .acf-field-repeater.acf-field-folders .acf-row-handle:first-child {
+  display: none;
+  pointer-events: none;
+}
+#acf-group_folder-management-fields .acf-field-repeater.acf-field-folders .acf-row-handle [data-event=add-row] {
+  display: none;
+  pointer-events: none;
+}
+
+#acf-group_folder-management-fields .acf-field input[readonly=readonly] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 /*# sourceMappingURL=admin-style.css.map */

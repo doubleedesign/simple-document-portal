@@ -207,19 +207,19 @@ class AdminUI {
         return $post_states;
     }
 
-    public function update_publish_box_text($translation, $text, $domain): ?string {
+    public function update_publish_box_text($translated_text, $text, $domain): ?string {
         // Rather than check where we are at the top (which will do it for every string),
         // check after we have ascertained that we're looking at the right piece of text.
         global $current_screen;
 
         if ($text === 'Public' && $current_screen->id === 'document') {
-            return $translation . '<small>' . __('Can only be used to revert to draft or pending review; published documents will automatically be set to private when saved', 'simple_document_portal') . '</small>';
+            return $translated_text . '<small>' . __('Can only be used to revert to draft or pending review; published documents will automatically be set to private when saved', 'simple_document_portal') . '</small>';
         }
         if ($text === 'Private' && $current_screen->id === 'document') {
-            return $translation . '<small>' . __('Accessible to logged-in users with the appropriate role or permission', 'simple_document_portal') . '</small>';
+            return $translated_text . '<small>' . __('Accessible to logged-in users with the appropriate role or permission', 'simple_document_portal') . '</small>';
         }
 
-        return $translation;
+        return $translated_text;
     }
 
     /**
