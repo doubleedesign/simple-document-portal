@@ -10,7 +10,13 @@
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
+use Doubleedesign\Comet\Core\Config;
 use Doubleedesign\SimpleDocumentPortal\PluginEntrypoint;
+
+Config::set_blade_component_paths([
+    __DIR__ . '\\vendor\\doubleedesign\\comet-file-group\\src',
+    __DIR__ . '\\vendor\\doubleedesign\\comet-responsive-panels\\src',
+]);
 
 new PluginEntrypoint();
 
