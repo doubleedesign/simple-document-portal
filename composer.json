@@ -1,5 +1,6 @@
 {
 	"name": "doubleedesign/simple-document-portal",
+	"version": "0.1.0",
 	"description": "Simple management of staff/member-only content and related functionality in WordPress.",
 	"type": "wordpress-plugin",
 	"authors": [
@@ -13,8 +14,11 @@
 			"Doubleedesign\\SimpleDocumentPortal\\": "src/"
 		}
 	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"require": {
-		"doubleedesign/comet-responsive-panels": "dev-main"
+		"doubleedesign/comet-responsive-panels": "dev-main",
+		"doubleedesign/comet-file-group": "dev-main"
 	},
 	"require-dev": {
 		"laravel/pint": "^1.24",

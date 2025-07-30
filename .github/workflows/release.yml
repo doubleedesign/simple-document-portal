@@ -1,0 +1,73 @@
+name: Build and Release WordPress Plugin
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+  push:
+    tags:
+      - 'v*'  # Triggers a release when a tag prefixed with 'v' is pushed
+    branches:
+      - master
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+
+      - name: Install production dependencies
+        run: composer install --no-dev --no-scripts --optimize-autoloader
+
+      - name: Create release directory
+        run: mkdir -p release/simple-document-portal
+
+      - name: Copy plugin files
+        run: |
+          # Copy core plugin files and directories
+          cp -r src/ release/simple-document-portal/
+          cp -r vendor/ release/simple-document-portal/
+          cp index.php release/simple-document-portal/
+          cp README.md release/simple-document-portal/
+          cp composer.json release/simple-document-portal/
+          
+          # Copy other necessary files (adjust as needed)
+          find . -maxdepth 1 -name "*.php" -not -name "*.ps1" -not -name "*.scss" -exec cp {} release/simple-document-portal/ \;
+
+      - name: Create zip archive
+        run: |
+          cd release
+          zip -r simple-document-portal.zip simple-document-portal/
+
+      - name: Generate release name
+        id: release_name
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo "name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          else
+            echo "name=${GITHUB_SHA:0:7}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: release/simple-document-portal.zip
+          name: Release ${{ steps.release_name.outputs.name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.SDP_PLUGIN_ACTIONS }}
+
+      - name: Upload artifact (for non-tag pushes)
+        if: "!startsWith(github.ref, 'refs/tags/')"
+        uses: actions/upload-artifact@v4
+        with:
+          name: simple-document-portal-${{ steps.release_name.outputs.name }}
+          path: release/simple-document-portal.zip

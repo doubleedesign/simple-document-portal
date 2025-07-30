@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e75baabc66e41a8606c63a554e2e8ead",
+    "content-hash": "cc635e559188b14332da37b257eea5f9",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -167,17 +167,17 @@
             "time": "2024-02-18T20:23:39+00:00"
         },
         {
-            "name": "doubleedesign/comet-responsive-panels",
+            "name": "doubleedesign/comet-components-launchpad",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doubleedesign/comet-components-responsive-panels.git",
-                "reference": "52154161b474c87d9bc33476ad68173a6413e52f"
+                "url": "https://github.com/doubleedesign/comet-components-launchpad.git",
+                "reference": "bf5c9315f855309014f5a27b880694be59921175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doubleedesign/comet-components-responsive-panels/zipball/52154161b474c87d9bc33476ad68173a6413e52f",
-                "reference": "52154161b474c87d9bc33476ad68173a6413e52f",
+                "url": "https://api.github.com/repos/doubleedesign/comet-components-launchpad/zipball/bf5c9315f855309014f5a27b880694be59921175",
+                "reference": "bf5c9315f855309014f5a27b880694be59921175",
                 "shasum": ""
             },
             "require": {
@@ -193,18 +193,105 @@
             "autoload": {
                 "psr-4": {
                     "Doubleedesign\\Comet\\Core\\": [
-                        "dist/src/base/types/",
-                        "dist/src/base/types/",
-                        "dist/src/base/attributes/",
-                        "dist/src/base/traits/",
-                        "dist/src/base/components/",
-                        "dist/src/base/",
-                        "dist/src/services/"
+                        "src/base/types/",
+                        "src/base/attributes/",
+                        "src/base/components/",
+                        "src/base/",
+                        "src/services/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Leesa Ward",
+                    "email": "leesa@doubleedesign.com.au"
+                }
+            ],
+            "description": "Base package of common dependencies for Comet Components standalone packages",
+            "homepage": "https://cometcomponents.io",
+            "support": {
+                "issues": "https://github.com/doubleedesign/comet-components-launchpad/issues",
+                "source": "https://github.com/doubleedesign/comet-components-launchpad/tree/main"
+            },
+            "time": "2025-07-30T05:02:20+00:00"
+        },
+        {
+            "name": "doubleedesign/comet-file-group",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doubleedesign/comet-components-file-group.git",
+                "reference": "66278ac68a726fbd8ada8010726ad9240d5db035"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doubleedesign/comet-components-file-group/zipball/66278ac68a726fbd8ada8010726ad9240d5db035",
+                "reference": "66278ac68a726fbd8ada8010726ad9240d5db035",
+                "shasum": ""
+            },
+            "require": {
+                "doubleedesign/comet-components-launchpad": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doubleedesign\\Comet\\Core\\": [
+                        "src/base/traits/",
+                        "src/base/components/",
+                        "src/base/"
                     ]
                 },
                 "classmap": [
-                    "dist/src/components/",
-                    "dist/src/components/**/"
+                    "src/components/",
+                    "src/components/**/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Leesa Ward",
+                    "email": "leesa@doubleedesign.com.au"
+                }
+            ],
+            "description": "Standalone package for FileGroup from the Comet Components library",
+            "homepage": "https://cometcomponents.io",
+            "support": {
+                "source": "https://github.com/doubleedesign/comet-components-file-group/tree/main"
+            },
+            "time": "2025-07-30T05:02:07+00:00"
+        },
+        {
+            "name": "doubleedesign/comet-responsive-panels",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doubleedesign/comet-components-responsive-panels.git",
+                "reference": "f7fdf6e5c68b212f571670c0705456a687acc117"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doubleedesign/comet-components-responsive-panels/zipball/f7fdf6e5c68b212f571670c0705456a687acc117",
+                "reference": "f7fdf6e5c68b212f571670c0705456a687acc117",
+                "shasum": ""
+            },
+            "require": {
+                "doubleedesign/comet-components-launchpad": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doubleedesign\\Comet\\Core\\": [
+                        "src/base/traits/",
+                        "src/base/components/",
+                        "src/base/"
+                    ]
+                },
+                "classmap": [
+                    "src/components/",
+                    "src/components/**/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -219,7 +306,7 @@
             "support": {
                 "source": "https://github.com/doubleedesign/comet-components-responsive-panels/tree/main"
             },
-            "time": "2025-07-27T07:45:07+00:00"
+            "time": "2025-07-30T05:02:34+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2140,16 +2227,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.5.0",
+            "version": "v5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9"
+                "reference": "221b0d0fdf1369c71047ad1d18bb5880017bbc56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ae59794362fe85e051a58ad36b289443f57be7a9",
-                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/221b0d0fdf1369c71047ad1d18bb5880017bbc56",
+                "reference": "221b0d0fdf1369c71047ad1d18bb5880017bbc56",
                 "shasum": ""
             },
             "require": {
@@ -2192,9 +2279,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.5.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.0"
             },
-            "time": "2025-05-31T08:24:38+00:00"
+            "time": "2025-07-27T20:03:57+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -5316,11 +5403,12 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
+        "doubleedesign/comet-file-group": 20,
         "doubleedesign/comet-responsive-panels": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
