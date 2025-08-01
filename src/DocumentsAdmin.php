@@ -7,6 +7,7 @@ use WP_Post;
  * Class for managing the custom post type for documents in the admin area.
  * This includes adding ACF fields, handling save actions, and setting post status.
  * Should be loaded only in the back-end.
+ * Note: UI-specific customisations that don't affect data are located in the AdminUI class.
  */
 class DocumentsAdmin {
 

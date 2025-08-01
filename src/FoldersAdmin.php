@@ -4,7 +4,8 @@ namespace Doubleedesign\SimpleDocumentPortal;
 
 /**
  * Class for managing the custom post type for document folders in the admin area.
- * This includes adding ACF fields and handling folder-specific actions.
+ * This includes adding ACF fields and handling folder-specific actions,
+ * including the creation of the custom folder taxonomy management screen.
  * Should be loaded only in the back-end.
  */
 class FoldersAdmin {

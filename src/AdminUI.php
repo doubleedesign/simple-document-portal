@@ -3,6 +3,11 @@ namespace Doubleedesign\SimpleDocumentPortal;
 
 use WP_Term;
 
+/**
+ * Class for managing UI-specific customisations for the admin area that do not affect data.
+ * This includes customisations to the document post list table, quick edit, publish box text.
+ * Note: Customisations that affect data (like ACF fields, save actions, etc.) are located in the DocumentsAdmin and FoldersAdmin classes.
+ */
 class AdminUI {
 
 	public function __construct() {
