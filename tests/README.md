@@ -46,7 +46,26 @@ Non-sensitive environment variables specific to a test type are set in their res
 
 ### Unit tests
 
-TBC
+// TODO: More info here
+
+A number of WordPress global functions are mocked using BrainMonkey, with some custom patching on top (using Patchwork directly) for additional functionality. See `tests/Unit/tests/Pest.php` for details.
+
+Central mock classes have been created for the `WP_Query` class and `$wpdb` global using Mockery and Spies, to ensure consistency as well as simplify repeated usage.
+
+#### Things to note
+
+<details>
+<summary>Asserting on spies</summary>
+
+At the time of writing, [Spies expectation syntax](https://github.com/sirbrillig/spies?tab=readme-ov-file#objects) for object method spies doesn't work with Pest as a standalone assertion. It can be used to give debugging information if a test is failing, but you ultimately also need either a standard Pest assertion such as:
+```php
+expect($spy->was_called_with('post__not_in', [17, 30, 27]))->toBeTrue();
+```
+or a PHPUnit assertion such as:
+```php
+$this->assertTrue($spy->was_called_with('post__not_in', [17, 30, 27]));
+```
+</details>
 
 ### Integration tests
 

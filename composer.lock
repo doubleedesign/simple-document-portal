@@ -222,12 +222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doubleedesign/comet-components-file-group.git",
-                "reference": "66278ac68a726fbd8ada8010726ad9240d5db035"
+                "reference": "b6ce6cf60edb7bdedb7d23a02762ddb98b7df8cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doubleedesign/comet-components-file-group/zipball/66278ac68a726fbd8ada8010726ad9240d5db035",
-                "reference": "66278ac68a726fbd8ada8010726ad9240d5db035",
+                "url": "https://api.github.com/repos/doubleedesign/comet-components-file-group/zipball/b6ce6cf60edb7bdedb7d23a02762ddb98b7df8cd",
+                "reference": "b6ce6cf60edb7bdedb7d23a02762ddb98b7df8cd",
                 "shasum": ""
             },
             "require": {
@@ -260,7 +260,7 @@
             "support": {
                 "source": "https://github.com/doubleedesign/comet-components-file-group/tree/main"
             },
-            "time": "2025-07-30T05:02:07+00:00"
+            "time": "2025-07-30T11:46:59+00:00"
         },
         {
             "name": "doubleedesign/comet-responsive-panels",
@@ -268,12 +268,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doubleedesign/comet-components-responsive-panels.git",
-                "reference": "f7fdf6e5c68b212f571670c0705456a687acc117"
+                "reference": "30065d9574054858086b990fc68ec8179451777f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doubleedesign/comet-components-responsive-panels/zipball/f7fdf6e5c68b212f571670c0705456a687acc117",
-                "reference": "f7fdf6e5c68b212f571670c0705456a687acc117",
+                "url": "https://api.github.com/repos/doubleedesign/comet-components-responsive-panels/zipball/30065d9574054858086b990fc68ec8179451777f",
+                "reference": "30065d9574054858086b990fc68ec8179451777f",
                 "shasum": ""
             },
             "require": {
@@ -306,7 +306,7 @@
             "support": {
                 "source": "https://github.com/doubleedesign/comet-components-responsive-panels/tree/main"
             },
-            "time": "2025-07-30T05:02:34+00:00"
+            "time": "2025-07-30T11:47:13+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",

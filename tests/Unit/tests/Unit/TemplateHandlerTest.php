@@ -2,7 +2,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 use Doubleedesign\SimpleDocumentPortal\TemplateHandler;
 use function Brain\Monkey\Functions\{when};
-use function Spies\{mock_object, expect_spy};
+use function Spies\{mock_object};
 
 beforeEach(function() {
     // Defaults
@@ -22,8 +22,8 @@ it('should load the folder taxonomy template', function() {
 
     $result = apply_filters('template_include', 'dummy-default.php', $spy);
 
-    expect_spy($spy)->to_have_been_called();
-    expect($result)->toBe('/templates/taxonomy-folder.php');
+    expect($spy->was_called())->toBeTrue()
+        ->and($result)->toBe('/templates/taxonomy-folder.php');
 });
 
 it('does not override the template for other taxonomies', function() {
@@ -37,8 +37,8 @@ it('does not override the template for other taxonomies', function() {
 
     $result = apply_filters('template_include', 'dummy-default.php', $spy);
 
-    expect_spy($spy)->to_have_been_called();
-    expect($result)->toBe('dummy-default.php');
+    expect($spy->was_called())->toBeTrue()
+        ->and($result)->toBe('dummy-default.php');
 });
 
 it('should load the document post type archive template', function() {
@@ -52,8 +52,8 @@ it('should load the document post type archive template', function() {
 
     $result = apply_filters('template_include', 'dummy-default.php', $spy);
 
-    expect_spy($spy)->to_have_been_called();
-    expect($result)->toBe('/templates/archive-document.php');
+    expect($spy->was_called())->toBeTrue()
+        ->and($result)->toBe('/templates/archive-document.php');
 });
 
 it('does not override the template for other post type archives', function() {
@@ -67,8 +67,8 @@ it('does not override the template for other post type archives', function() {
 
     $result = apply_filters('template_include', 'dummy-default.php', $spy);
 
-    expect_spy($spy)->to_have_been_called();
-    expect($result)->toBe('dummy-default.php');
+    expect($spy->was_called())->toBeTrue()
+        ->and($result)->toBe('dummy-default.php');
 });
 
 it('should load the document single document template', function() {
@@ -82,8 +82,8 @@ it('should load the document single document template', function() {
 
     $result = apply_filters('template_include', 'dummy-default.php', $spy);
 
-    expect_spy($spy)->to_have_been_called();
-    expect($result)->toBe('/templates/single-document.php');
+    expect($spy->was_called())->toBeTrue()
+        ->and($result)->toBe('/templates/single-document.php');
 });
 
 it('does not override the template for other single posts', function() {
@@ -97,6 +97,6 @@ it('does not override the template for other single posts', function() {
 
     $result = apply_filters('template_include', 'dummy-default.php', $spy);
 
-    expect_spy($spy)->to_have_been_called();
-    expect($result)->toBe('dummy-default.php');
+    expect($spy->was_called())->toBeTrue()
+        ->and($result)->toBe('dummy-default.php');
 });

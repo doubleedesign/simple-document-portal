@@ -7,10 +7,10 @@
           <option name="path" value="$PROJECT_DIR$/tests/E2E/tests" />
         </Configuration>
         <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tests" />
+          <option name="path" value="$PROJECT_DIR$/tests/Unit/tests" />
         </Configuration>
         <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tests/Unit/tests" />
+          <option name="path" value="$PROJECT_DIR$/tests" />
         </Configuration>
       </list>
     </option>

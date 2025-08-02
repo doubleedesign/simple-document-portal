@@ -68,5 +68,6 @@ uses()->beforeEach(function() {
 uses()->afterEach(function() {
     finish_spying(); // verifies all Spies expectations (otherwise we get "test had no assertions" errors)
 
+    Mockery::close();
     Monkey\tearDown();
 })->in('Unit');

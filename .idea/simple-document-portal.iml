@@ -7,10 +7,10 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\Tests\E2E\" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/Unit/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/E2E/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Integration/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/Unit/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Unit/mocks" isTestSource="false" packagePrefix="Doubleedesign\SimpleDocumentPortal\Tests\Unit\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
       <excludeFolder url="file://$MODULE_DIR$/tests/Integration/vendor/brianium/paratest" />

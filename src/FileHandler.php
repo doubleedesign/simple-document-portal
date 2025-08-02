@@ -152,8 +152,8 @@ class FileHandler extends FileUploadHandler {
      */
     public function is_attached_to_document(int $attachment_id): bool {
         $query = new WP_Query([
-            'post_type'  => 'document',
-            'meta_query' => [
+            'post_type'      => 'document',
+            'meta_query'     => [
                 [
                     'key'     => 'protected_document_file',
                     'value'   => $attachment_id,
@@ -170,11 +170,11 @@ class FileHandler extends FileUploadHandler {
     /**
      * Do not show document files in the media library.
      *
-     * @param  WP_Query  $query
+     * @param  $query
      *
      * @return void
      */
-    public function filter_document_files_from_media_library(WP_Query $query): void {
+    public function filter_document_files_from_media_library($query): void {
         if ($query->get('post_type') !== 'attachment') {
             return;
         }
@@ -185,6 +185,7 @@ class FileHandler extends FileUploadHandler {
 			WHERE meta_key = 'protected_document_file'
 		");
 
+        // Assertion on this fails
         $query->set('post__not_in', $file_attachment_ids);
     }
 }

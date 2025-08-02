@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="true" type="PestRunConfigurationType" singleton="false">
-    <CommandLine workingDirectory="$PROJECT_DIR$">
+  <configuration default="false" name="Unit" type="PestRunConfigurationType">
+    <CommandLine workingDirectory="$PROJECT_DIR$/">
       <envFiles>
         <find>$PROJECT_DIR$/.env</find>
       </envFiles>
@@ -11,10 +11,10 @@
       </list>
     </option>
     <option name="pestRunnerSettings">
-      <PestRunner method="" scope="ConfigurationFile" options="--display-deprecations" />
+      <PestRunner directory="$PROJECT_DIR$/tests/Unit/tests" method="" />
     </option>
     <option name="runnerSettings">
-      <PhpTestRunnerSettings method="" scope="ConfigurationFile" options="--display-deprecations" />
+      <PhpTestRunnerSettings directory="$PROJECT_DIR$/tests/Unit/tests" method="" />
     </option>
     <method v="2" />
   </configuration>
