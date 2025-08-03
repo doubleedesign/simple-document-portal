@@ -5,7 +5,6 @@ use Exception;
 /**
  * The main entry point for the Simple Document Portal plugin.
  * TODO: Implement uninstall steps
- * TODO: Settings link in plugin list
  */
 class PluginEntrypoint {
     private static string $directory = '';

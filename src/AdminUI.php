@@ -10,11 +10,13 @@ use WP_Term;
  */
 class AdminUI {
 
-	public function __construct() {
-		add_action('admin_enqueue_scripts', [$this, 'enqueue_assets'], 30);
+    public function __construct() {
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_assets'], 30);
 
-		add_filter('manage_document_posts_columns', [$this, 'add_document_admin_columns']);
-		add_filter('manage_edit-document_sortable_columns', [$this, 'add_document_admin_sortable_columns'], 10, 1);
+        add_filter('plugin_action_links', [$this, 'add_plugin_action_links'], 10, 4);
+
+        add_filter('manage_document_posts_columns', [$this, 'add_document_admin_columns']);
+        add_filter('manage_edit-document_sortable_columns', [$this, 'add_document_admin_sortable_columns'], 10, 1);
 		add_action('manage_document_posts_custom_column', [$this, 'populate_document_admin_columns'], 10, 2);
 
 		add_filter('post_row_actions', [$this, 'customise_row_actions'], 10, 2);
@@ -41,12 +43,24 @@ class AdminUI {
 			plugin_dir_url(__FILE__) . 'assets/admin-js.js',
 			[],
 			filemtime(plugin_dir_path(__FILE__) . 'assets/admin-js.js'),
-			true
-		);
-	}
+            true
+        );
+    }
 
-	public function add_document_admin_columns($columns): array {
-		$columns['document_file'] = __('File', 'simple-document-portal');
+    public function add_plugin_action_links($actions, $plugin_file, $plugin_data, $context): array {
+        if ($plugin_file === 'simple-document-portal/index.php') {
+            $actions['settings'] = sprintf(
+                '<a href="%s">%s</a>',
+                esc_url(admin_url('/edit.php?post_type=document&page=settings')),
+                __('Settings', 'simple-document-portal')
+            );
+        }
+
+        return $actions;
+    }
+
+    public function add_document_admin_columns($columns): array {
+        $columns['document_file'] = __('File', 'simple-document-portal');
 		$columns['document_folder'] = __('Folder', 'simple-document-portal');
 		$columns['date'] = __('Date added', 'simple-document-portal');
 
