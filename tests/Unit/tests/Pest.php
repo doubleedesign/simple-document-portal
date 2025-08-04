@@ -2,7 +2,6 @@
 use Brain\Monkey;
 use function Brain\Monkey\Functions\when;
 use Spies\Spy;
-use function Spies\{finish_spying};
 use function Patchwork\relay;
 
 uses()->beforeEach(function() {
@@ -63,11 +62,18 @@ uses()->beforeEach(function() {
         return $value;
     });
 
+    when('__')->returnArg(1);
+
+    when('get_option')->alias(function($option_name) {
+        if ($option_name === 'simple_document_portal_directory') {
+            return '/documents/';
+        }
+
+        return relay(func_get_args());
+    });
 })->in('Unit');
 
 uses()->afterEach(function() {
-    finish_spying(); // verifies all Spies expectations (otherwise we get "test had no assertions" errors)
-
     Mockery::close();
     Monkey\tearDown();
 })->in('Unit');

@@ -66,7 +66,7 @@ class UserPermissions {
         $wp_roles_instance = wp_roles();
 
         return array_filter($wp_roles_instance->roles, function($role) use ($capability) {
-            return in_array($capability, array_keys($role['capabilities']), true);
+            return in_array($capability, array_keys($role['capabilities']), true) && $role['capabilities'][$capability] === true;
         });
     }
 
