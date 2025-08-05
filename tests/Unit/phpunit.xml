@@ -7,6 +7,7 @@
 >
     <php>
         <env name="XDEBUG_MODE" value="coverage"/>
+        <ini name="error_reporting" value="E_ALL &amp; ~E_DEPRECATED &amp; ~E_USER_DEPRECATED"/>
     </php>
     <coverage>
         <report>

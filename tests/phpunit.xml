@@ -9,6 +9,7 @@
         <env name="XDEBUG_MODE" value="coverage"/>
         <env name="APP_ENV" value="dusk.local"/>
         <env name="APP_URL" value="http://docportal.test"/>
+        <ini name="error_reporting" value="E_ALL &amp; ~E_DEPRECATED &amp; ~E_USER_DEPRECATED"/>
     </php>
     <coverage>
         <report>
