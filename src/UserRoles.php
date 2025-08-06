@@ -64,6 +64,11 @@ class UserRoles {
             $user_query = new WP_User_Query(array(
                 'capability' => $custom_role['key']
             ));
+
+            if ($user_query->get('results') === null) {
+                continue; // No users with this role
+            }
+
             foreach ($user_query->get('results') as $user) {
                 $user->add_role($custom_role['key']);
                 $user->remove_role($custom_role['base_role']);
@@ -93,6 +98,10 @@ class UserRoles {
             $user_query = new WP_User_Query(array(
                 'role' => $custom_role['key']
             ));
+
+            if ($user_query->get('results') === null) {
+                continue; // No users with this role
+            }
 
             // Loop through the found users
             foreach ($user_query->get('results') as $user) {
