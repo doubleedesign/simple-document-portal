@@ -20,10 +20,10 @@ abstract class FileUploadHandler {
 
         return [
             'path'    => $protected_dir,
-            'url'     => '/documents',
+            'url'     => get_site_url() . '/documents',
             'subdir'  => '',
             'basedir' => $protected_dir,
-            'baseurl' => '/documents',
+            'baseurl' => get_site_url() . '/documents',
             'error'   => false,
         ];
     }

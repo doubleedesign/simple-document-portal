@@ -1,13 +1,17 @@
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
 use Doubleedesign\SimpleDocumentPortal\FileHandler;
-use Doubleedesign\SimpleDocumentPortal\Tests\Unit\{WPDB_Mock, WP_Query_Mock};
+use Doubleedesign\SimpleDocumentPortal\Tests\Unit\{WP_Roles_Mock, WPDB_Mock, WP_Query_Mock};
+use function Brain\Monkey\Functions\{when};
 
 beforeEach(function() {
     $wpdb = new WPDB_Mock();
     $wpdb->stub('get_col')
         ->with_sql("SELECT meta_value FROM wp_postmeta WHERE meta_key = 'protected_document_file'")
         ->will_return([17, 30, 27]);
+
+    $wpRolesMock = WP_Roles_Mock::create();
+    when('wp_roles')->justReturn($wpRolesMock);
 });
 
 it('filters protected documents out of queries for attachments', function() {
