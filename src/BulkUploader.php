@@ -135,9 +135,4 @@ class BulkUploader extends FileUploadHandler {
             }
         }
     }
-
-    public function handle_abandoned_upload(): void {
-        // TODO: Handle options page update being abandoned (files are uploaded but not processed into document posts - they need to be deleted)
-        // Maybe a scheduled action can handle this?
-    }
 }

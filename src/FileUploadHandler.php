@@ -4,9 +4,7 @@ use RuntimeException;
 
 abstract class FileUploadHandler {
 
-    public function __construct() {
-        // TODO: Ensure upload does not go into default location if there is a problem with the redirection
-    }
+    public function __construct() {}
 
     public function intercept_upload($errors, $file, $field) {
         add_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10, 1);
