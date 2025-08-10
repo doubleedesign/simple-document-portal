@@ -21,6 +21,7 @@ class AdminSettings {
             'menu_slug'   => 'settings',
             'capability'  => 'manage_documents_options',
             'redirect'    => false,
+            'position'    => 30
         ));
     }
 

@@ -295,24 +295,4 @@ class FileHandler extends FileUploadHandler {
         // assuming we have already fixed the path using a filter for get_attached_file.
         add_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10, 1);
     }
-
-    /**
-     * Delete a file from the custom directory, and its metadata from the database.
-     *
-     * @param  int  $attachment_id
-     *
-     * @return bool
-     */
-    protected function delete_file(int $attachment_id): bool {
-        // Temporarily change where the internal WordPress functions look for the file,
-        // so we can let WordPress handle the deletion like any other file
-        add_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10, 1);
-
-        $result = wp_delete_attachment($attachment_id);
-
-        // Remove the filter to avoid affecting other uploads
-        remove_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10);
-
-        return $result !== null && $result !== false;
-    }
 }

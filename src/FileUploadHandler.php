@@ -4,7 +4,9 @@ use RuntimeException;
 
 abstract class FileUploadHandler {
 
-    public function __construct() {}
+    public function __construct() {
+        // TODO: Ensure upload does not go into default location if there is a problem with the redirection
+    }
 
     public function intercept_upload($errors, $file, $field) {
         add_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10, 1);
@@ -26,5 +28,25 @@ abstract class FileUploadHandler {
             'baseurl' => get_site_url() . '/documents',
             'error'   => false,
         ];
+    }
+
+    /**
+     * Delete a file from the custom directory, and its metadata from the database.
+     *
+     * @param  int  $attachment_id
+     *
+     * @return bool
+     */
+    protected function delete_file(int $attachment_id): bool {
+        // Temporarily change where the internal WordPress functions look for the file,
+        // so we can let WordPress handle the deletion like any other file
+        add_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10, 1);
+
+        $result = wp_delete_attachment($attachment_id);
+
+        // Remove the filter to avoid affecting other uploads
+        remove_filter('upload_dir', [$this, 'redirect_to_protected_dir'], 10);
+
+        return $result !== null && $result !== false;
     }
 }

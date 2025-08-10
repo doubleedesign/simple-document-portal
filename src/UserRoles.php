@@ -25,7 +25,7 @@ class UserRoles {
             $role = add_role($custom_role_config['key'], $custom_role_config['label'], $template_role->capabilities);
 
             // Add custom capabilities to the new role
-            if ($custom_role_config['custom_capabilities']) {
+            if ($role && $custom_role_config['custom_capabilities']) {
                 foreach ($custom_role_config['custom_capabilities'] as $capability) {
                     $role->add_cap($capability);
                 }

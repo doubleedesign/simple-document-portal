@@ -1,5 +1,7 @@
 <?php
 namespace Doubleedesign\SimpleDocumentPortal;
+use DateTime;
+use DateTimeZone;
 use Exception;
 
 /**
@@ -34,6 +36,21 @@ class PluginEntrypoint {
             UserRoles::create_roles();
             UserRoles::reassign_users_roles();
             UserPermissions::map_permissions_to_existing_roles();
+
+            if (!as_has_scheduled_action('simple_document_portal_scheduled_cleanup')) {
+                // Get WordPress timezone
+                $wp_timezone = wp_timezone();
+                $next_2am = new DateTime('tomorrow 2:00', $wp_timezone);
+                $next_2am_utc = $next_2am->setTimezone(new DateTimeZone('UTC'));
+                $timestamp = $next_2am_utc->getTimestamp();
+                as_schedule_recurring_action(
+                    $timestamp,
+                    DAY_IN_SECONDS,
+                    'simple_document_portal_scheduled_cleanup',
+                    array(),
+                    'simple-document-portal',
+                );
+            }
         }
         catch (Exception $e) {
             self::deactivate();
@@ -48,9 +65,12 @@ class PluginEntrypoint {
     public static function deactivate(): void {
         UserRoles::delete_roles();
         UserPermissions::reset_default_capabilities();
+        flush_rewrite_rules();
 
         // Remove stored directory location from options table
         delete_option('simple_document_portal_directory');
+
+        as_unschedule_all_actions('simple_document_portal_scheduled_cleanup', array(), 'simple-document-portal');
     }
 
     public static function uninstall(): void {
