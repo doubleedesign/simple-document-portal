@@ -63,19 +63,16 @@ class PluginEntrypoint {
     }
 
     public static function deactivate(): void {
-        UserRoles::delete_roles();
+        UserRoles::revert_users_roles(false);
         UserPermissions::reset_default_capabilities();
-        flush_rewrite_rules();
-
-        // Remove stored directory location from options table
         delete_option('simple_document_portal_directory');
-
         as_unschedule_all_actions('simple_document_portal_scheduled_cleanup', array(), 'simple-document-portal');
+        flush_rewrite_rules();
     }
 
     public static function uninstall(): void {
-        UserRoles::revert_users_roles(true);
-        // TODO Clear warning and confirmation that uninstalling will delete the documents
+        UserRoles::delete_roles();
+        // TODO Clear warning and confirmation that uninstalling will delete revert/delete roles and delete documents
         // TODO Implement deletion
     }
 

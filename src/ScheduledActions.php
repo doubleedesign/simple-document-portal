@@ -7,6 +7,9 @@ class ScheduledActions extends FileUploadHandler {
         parent::__construct();
         add_action('plugins_loaded', [$this, 'initialise_custom_admin_view'], 10);
         add_action('simple_document_portal_scheduled_cleanup', [$this, 'delete_orphaned_files'], 10, 0);
+
+        // TODO Add an admin notice if the expected actions have been disabled or deleted
+        // because while the custom UI is simplified and designed to prevent this, the main Actions Scheduler screen could still be used.
     }
 
     public function initialise_custom_admin_view(): void {
