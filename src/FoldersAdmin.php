@@ -45,18 +45,36 @@ class FoldersAdmin {
     public function add_folder_management_fields(): void {
         // Get ACF fields for the folder taxonomy itself
         $folder_field_group = acf_get_local_field_group('group_folder-fields');
-        if ($folder_field_group) {
-            $folder_fields = acf_get_local_fields($folder_field_group['key']);
+        $folder_fields = $folder_field_group ? acf_get_local_fields($folder_field_group['key']) : [];
 
-            // Calculate the space remaining to be used for the name/slug fields from the wrapper widths on all the $folder_fields
-            $available_width = array_reduce($folder_fields, function($carry, $field) {
-                if (isset($field['wrapper']['width']) && is_numeric($field['wrapper']['width'])) {
-                    return 100 - ($carry + (int)$field['wrapper']['width']);
-                }
-
-                return $carry;
-            }, 0);
-        }
+        $common_field_settings = array(
+            'id' => array(
+                'key'               => 'field_folder-id',
+                'type'              => 'text',
+                'label'             => 'ID',
+                'name'              => 'id',
+                // can't use disabled because that will stop the data going through on save
+                'readonly'          => true,
+                'allow_in_bindings' => false
+            ),
+            'name' => array(
+                'key' 			           => 'field_folder-name',
+                'label'             => 'Name',
+                'name'              => 'name',
+                'type'              => 'text',
+                'required'          => true,
+                'maxlength'         => 100,
+                'allow_in_bindings' => false,
+            ),
+            'slug' => array(
+                'key'               => 'field_folder-slug',
+                'label'             => 'URL slug',
+                'name'              => 'slug',
+                'type'              => 'text',
+                'maxlength'         => 100,
+                'allow_in_bindings' => false,
+            )
+        );
 
         // Add a repeater field to the options page for managing folders, using the actual folder taxonomy fields as sub-fields
         acf_add_local_field_group(array(
@@ -64,56 +82,74 @@ class FoldersAdmin {
             'title'                 => 'Folders',
             'fields'                => array(
                 array(
+                    'key'     => 'field_folder-management-notes',
+                    'type'    => 'message',
+                    'message' => '<ul><li>Folders and subfolders will automatically be sorted by prefix after saving.</li></ul>',
+                    'wrapper' => array(
+                        'class' => 'notice notice-info',
+                    ),
+                ),
+                array(
+                    'key'     => 'field_folder-management-warning',
+                    'type'    => 'message',
+                    'message' => '<ul><li>Deleting a folder deletes all its subfolders.</li><li>Changes (including deletions) are not saved until you click "Update folders", so if you accidentally delete something, refresh the page without saving to restore to the last saved state.</li><li>After saving, deleted folders cannot be recovered from within the admin. Restoring a previous version of the folders from a database backup may possible as a last resort, but the availability of a backup with the exact desired configuration is never guaranteed.</li></ul>',
+                    'wrapper' => array(
+                        'class' => 'notice notice-warning'
+                    ),
+                ),
+                array(
                     'key'           => 'field_folders',
                     'name'          => 'field_folders_repeater',
                     'type'          => 'repeater',
-                    'instructions'  => 'Note: Folders will automatically be sorted by prefix after saving.',
                     'required'      => 0,
-                    'layout'        => 'table',
+                    'layout'        => 'row',
                     'pagination'    => false,
                     'button_label'  => 'Add folder',
                     'rows_per_page' => 100,
                     'sub_fields'    => array(
-                        array(
-                            'key'               => 'field_folder-id',
-                            'type'              => 'text',
-                            'label'             => 'ID',
-                            'name'              => 'id',
-                            'instructions'      => 'Auto-generated and must be unique.',
-                            'wrapper'           => array(
-                                'width' => '10',
-                            ),
-                            'parent_repeater'   => 'field_folders',
-                            // can't use disabled because that will stop the data going through on save
-                            'readonly'          => true,
-                            'allow_in_bindings' => false
-                        ),
                         ...$folder_fields ?? [],
                         array(
                             'key'               => 'field_folder-name',
-                            'label'             => 'Name',
-                            'name'              => 'name',
-                            'type'              => 'text',
-                            'required'          => true,
-                            'wrapper'           => array(
-                                'width' => $available_width ? $available_width * 0.6 : '40',
-                            ),
-                            'maxlength'         => 100,
-                            'allow_in_bindings' => false,
                             'parent_repeater'   => 'field_folders',
+                            ...$common_field_settings['name']
                         ),
                         array(
                             'key'               => 'field_folder-slug',
-                            'label'             => 'URL slug',
-                            'instructions'      => 'Will be automatically generated if left empty. Must not include spaces or special characters.',
-                            'name'              => 'slug',
-                            'type'              => 'text',
-                            'wrapper'           => array(
-                                'width' => $available_width ? $available_width * 0.4 : '35',
-                            ),
-                            'maxlength'         => 100,
-                            'allow_in_bindings' => false,
                             'parent_repeater'   => 'field_folders',
+                            'instructions'      => 'Will be automatically generated if left empty. Must not include spaces or special characters.',
+                            ...$common_field_settings['slug']
+                        ),
+                        array(
+                            'key'               => 'field_folder-id',
+                            'parent_repeater'   => 'field_folders',
+                            'instructions'      => 'Auto-generated and must be unique.',
+                            ...$common_field_settings['id']
+                        ),
+                        array(
+                            'key'               => 'field_subfolders',
+                            'name'              => 'field_subfolders_repeater',
+                            'label'             => 'Subfolders',
+                            'type'              => 'repeater',
+                            'required'          => 0,
+                            'layout'            => 'table',
+                            'pagination'        => false,
+                            'button_label'      => 'Add subfolder',
+                            'rows_per_page'     => 100,
+                            'sub_fields'        => array(
+                                ...$folder_fields ?? [],
+                                array(
+                                    'parent_repeater'   => 'field_subfolders',
+                                    ...$common_field_settings['name']
+                                ),
+                                array(
+                                    'parent_repeater'   => 'field_subfolders',
+                                    ...$common_field_settings['slug']
+                                ),
+                                array(
+                                    'parent_repeater'   => 'field_subfolders',
+                                    ...$common_field_settings['id']
+                                ),
+                            )
                         )
                     )
                 ),
@@ -163,19 +199,34 @@ class FoldersAdmin {
      */
     public function preload_folders_in_management_form($value, $post_id, $field): mixed {
         if ($field['name'] === 'field_folders_repeater' && $field['parent'] === 'group_folder-management-fields' && $post_id === 'options') {
-            $folders = get_terms(array(
+            $top_level_folders = get_terms(array(
                 'taxonomy'   => 'folder',
                 'hide_empty' => false,
+                'parent'     => 0
             ));
 
             return array_map(function($folder) {
+                $subfolders = get_terms(array(
+                    'taxonomy'   => 'folder',
+                    'hide_empty' => false,
+                    'parent'     => $folder->term_id,
+                ));
+
                 return array(
-                    'field_folder-id'     => $folder->term_id,
-                    'field_folder-name'   => $folder->name,
-                    'field_folder-prefix' => get_term_meta($folder->term_id, 'prefix', true) ?? '',
-                    'field_folder-slug'   => $folder->slug,
+                    'field_folder-id'      => $folder->term_id,
+                    'field_folder-name'    => $folder->name,
+                    'field_folder-prefix'  => get_term_meta($folder->term_id, 'prefix', true) ?? '',
+                    'field_folder-slug'    => $folder->slug,
+                    'field_subfolders'     => array_map(function($subfolder) {
+                        return array(
+                            'field_folder-id'     => $subfolder->term_id,
+                            'field_folder-name'   => $subfolder->name,
+                            'field_folder-prefix' => get_term_meta($subfolder->term_id, 'prefix', true) ?? '',
+                            'field_folder-slug'   => $subfolder->slug,
+                        );
+                    }, $subfolders)
                 );
-            }, $folders);
+            }, $top_level_folders);
         }
 
         return $value;
@@ -198,52 +249,79 @@ class FoldersAdmin {
                 'hide_empty' => false,
             ));
             $existing_ids = array_column($existing_folders, 'term_id');
-            $submitted_ids = array_column($submitted_data, 'field_folder-id');
+            $submitted_top_level_ids = array_column($submitted_data, 'field_folder-id');
+            $submitted_subfolder_ids = array_reduce($submitted_data, function($carry, $item) {
+                if (is_array($item['field_subfolders'])) {
+                    return array_merge($carry, array_column($item['field_subfolders'], 'field_folder-id'));
+                }
 
-            foreach ($submitted_data as $item) {
-                $id = $item['field_folder-id'];
-                // if the ID is empty, this is a new term to be created
-                if (empty($id)) {
-                    $term = wp_insert_term(
-                        $item['field_folder-name'],
-                        'folder',
-                        array(
-                            'slug' => $item['field_folder-slug'] ?? '',
-                        )
-                    );
-                    if (!is_wp_error($term)) {
-                        array_push($submitted_ids, (int)$term['term_id']);
-                        update_term_meta((int)$term['term_id'], 'prefix', $item['field_folder-prefix'] ?? '');
-                    }
-                    else {
-                        error_log(print_r($term, true));
-                        acf_add_admin_notice('Error creating folder: ' . $term->get_error_message(), 'error');
-                    }
+                return $carry;
+            }, []);
+            $submitted_ids = array_merge($submitted_top_level_ids, $submitted_subfolder_ids);
+
+            $new_ids = [];
+            array_walk($submitted_data, function(&$item) use ($new_ids) {
+                $new_id = $this->save_folder($item);
+                array_push($new_ids, $new_id);
+                if (is_array($item['field_subfolders'])) {
+                    array_walk($item['field_subfolders'], function($subfolder) use ($new_ids, $item) {
+                        $new_id = $this->save_folder(array(
+                            'parent' => $item['field_folder-id'],
+                            ...$subfolder
+                        ));
+                        array_push($new_ids, $new_id);
+                    });
                 }
-                // Otherwise, find term by existing ID and update it
-                else {
-                    $term = get_term($id, 'folder');
-                    wp_update_term(
-                        $term->term_id,
-                        'folder',
-                        array(
-                            'name' => $item['field_folder-name'],
-                            'slug' => $item['field_folder-slug'],
-                        )
-                    );
-                    update_term_meta($term->term_id, 'prefix', $item['field_folder-prefix'] ?? '');
-                }
-            }
+            });
+
             // Clear the default field that this form creates so we don't store redundant submitted_data in the wp_options table
             update_field('field_folders', [], 'options');
 
             // Delete any folders that were not included in the submitted data or were not just created
-            $to_delete = array_diff($existing_ids, $submitted_ids);
+            $to_delete = array_diff($existing_ids, array_merge($submitted_ids, $new_ids));
             array_walk($to_delete, function($id) {
                 wp_delete_term($id, 'folder');
                 delete_term_meta($id, 'prefix');
             });
         }
+    }
+
+    protected function save_folder($item): int {
+        $id = $item['field_folder-id'];
+        // if the ID is empty, this is a new term to be created
+        if (empty($id)) {
+            $term = wp_insert_term(
+                $item['field_folder-name'],
+                'folder',
+                array(
+                    'slug'   => $item['field_folder-slug'] ?? '',
+                    'parent' => isset($item['parent']) ? (int)$item['parent'] : 0,
+                )
+            );
+            if (!is_wp_error($term)) {
+                $id = (int)$term['term_id'];
+                update_term_meta($id, 'prefix', $item['field_folder-prefix'] ?? '');
+            }
+            else {
+                error_log(print_r($term, true));
+                acf_add_admin_notice('Error creating folder: ' . $term->get_error_message(), 'error');
+            }
+        }
+        // Otherwise, find term by existing ID and update it
+        else {
+            wp_update_term(
+                $id,
+                'folder',
+                array(
+                    'name' => $item['field_folder-name'],
+                    'slug' => $item['field_folder-slug'],
+                    // TODO: Allow for parent to be changed
+                )
+            );
+            update_term_meta($id, 'prefix', $item['field_folder-prefix'] ?? '');
+        }
+
+        return (int)$id;
     }
 
     /**
@@ -265,11 +343,6 @@ class FoldersAdmin {
                     'instructions'      => '',
                     'required'          => 0,
                     'conditional_logic' => 0,
-                    'wrapper'           => array(
-                        'width' => '15',
-                        'class' => '',
-                        'id'    => '',
-                    ),
                     'default_value'     => '',
                     'maxlength'         => '',
                     'allow_in_bindings' => 0,

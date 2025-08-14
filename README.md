@@ -8,7 +8,7 @@ A WordPress plugin to provide access to documents to logged-in users, with a sim
 - Native WordPress + ACF interface for creating single document posts
 - Storage of documents in a dedicated directory outside the webroot, with custom code to check permissions before serving a file
 - Customised ACF-based interface for bulk uploading documents
-- Customised ACF-based interface for managing folders
+- Customised ACF-based interface for managing folders which limits the taxonomy hierarchy to two levels
 - Automatic deletion of document file when the post is deleted
 - Automatic deletion of document file when the attached file for a document post is changed
 - Daily scheduled cleanup of orphaned documents (e.g., from abandoned bulk uploads)
