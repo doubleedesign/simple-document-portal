@@ -42,11 +42,14 @@ uses()->beforeEach(function() {
         relay(func_get_args());
     });
 
+    // TODO: Fix this not working with multiple arguments being passed to the callback
     when('apply_filters')->alias(function($hook, $value, ...$extra) {
         // Run the functions registered for this hook
         if (isset($this->filters[$hook])) {
             foreach ($this->filters[$hook] as $callback) {
                 // If a spy is provided as a third argument, call that as well as the registered callback
+                // This fixes the issue where the result is correct because the correct method gets called,
+                // but $this inside the class being tested is the original mock not the spy object created from that mock
                 if (isset($extra[0]) && $extra[0] instanceof Spy) {
                     $extra[0]->call($value);
                 }
@@ -72,6 +75,21 @@ uses()->beforeEach(function() {
         return relay(func_get_args());
     });
 })->in('Unit');
+
+expect()->extend('toContainHtml', function($expected) {
+    $actual = $this->value;
+
+    $normalizeHtml = function($html) {
+        return preg_replace('/\s+/', ' ', trim($html));
+    };
+
+    $normalizedActual = $normalizeHtml($actual);
+    $normalizedExpected = $normalizeHtml($expected);
+
+    expect($normalizedActual)->toContain($normalizedExpected);
+
+    return $this;
+});
 
 uses()->afterEach(function() {
     Mockery::close();

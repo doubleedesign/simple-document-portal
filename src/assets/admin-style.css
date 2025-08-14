@@ -109,6 +109,17 @@ body.wp-admin.term-php #acf-form-data + h2 {
   margin-bottom: 0;
 }
 
+button.acf-js-tooltip {
+  appearance: none;
+  border: 0;
+  background: transparent;
+}
+
+label:has(button.acf-js-tooltip) {
+  display: flex;
+  align-items: center;
+}
+
 #acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -137,13 +148,62 @@ body.wp-admin.term-php #acf-form-data + h2 {
   padding: 0;
 }
 
-#acf-group_folder-management-fields .acf-field-repeater.acf-field-folders .acf-row-handle:first-child {
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-row-handle:first-child {
   display: none;
   pointer-events: none;
 }
-#acf-group_folder-management-fields .acf-field-repeater.acf-field-folders .acf-row-handle [data-event=add-row] {
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-row-handle [data-event=add-row] {
   display: none;
   pointer-events: none;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table {
+  display: block;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody {
+  display: contents;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead .acf-th[data-name=field_subfolders_repeater], #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody .acf-th[data-name=field_subfolders_repeater] {
+  display: none;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-inline-end: 2rem;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr th, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr td, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr th, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr td {
+  width: unset !important;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr [data-key=field_folder-name],
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr [data-key=field_subfolder-name], #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr [data-key=field_folder-name],
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr [data-key=field_subfolder-name] {
+  grid-column: span 4;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr [data-key=field_folder-slug],
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr [data-key=field_subfolder-slug], #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr [data-key=field_folder-slug],
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr [data-key=field_subfolder-slug] {
+  grid-column: span 2;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr .acf-row-handle:empty, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr .acf-row-handle:empty {
+  display: none;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr .acf-row-handle.remove, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr .acf-row-handle.remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1rem !important;
+  height: 2rem;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr .acf-row-handle.remove [data-event=remove-row], #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr .acf-row-handle.remove [data-event=remove-row] {
+  display: block;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr .acf-field-subfolders, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr .acf-field-subfolders {
+  grid-column: 1/-1;
+}
+#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr .acf-field-subfolders th, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead tr .acf-field-subfolders td, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr .acf-field-subfolders th, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody tr .acf-field-subfolders td {
+  border: 0;
 }
 
 #acf-group_folder-management-fields .acf-field input[readonly=readonly] {

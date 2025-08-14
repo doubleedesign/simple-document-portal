@@ -26,11 +26,14 @@ class AdminUI {
 		add_action('restrict_manage_posts', [$this, 'add_folder_filter_to_document_list'], 10, 1);
 		add_filter('display_post_states', [$this, 'do_not_add_private_status_text_to_documents'], 10, 2);
 
-		add_filter('gettext', [$this, 'update_publish_box_text'], 10, 3);
-		add_filter('esc_html', [$this, 'hack_publish_box_visibility_text'], 20, 1);
-	}
+        add_filter('gettext', [$this, 'update_publish_box_text'], 10, 3);
+        add_filter('esc_html', [$this, 'hack_publish_box_visibility_text'], 20, 1);
 
-	public function enqueue_assets(): void {
+        add_filter('acf/prepare_field', [$this, 'prepare_fields_that_should_have_instructions_as_tooltips'], 10, 1);
+        add_filter('acf/get_field_label', [$this, 'render_some_acf_field_instructions_as_tooltips'], 10, 3);
+    }
+
+    public function enqueue_assets(): void {
 		wp_enqueue_style(
 			'simple-document-portal-admin',
 			plugin_dir_url(__FILE__) . 'assets/admin-style.css',
@@ -235,6 +238,47 @@ class AdminUI {
 			$text = trim($text); // Remove any leading/trailing whitespace
 		}
 
-		return $text;
-	}
+        return $text;
+    }
+
+    /**
+     * ACF does not have a filter to allow us to remove the instructions from the DOM,
+     * and I hate hacking such things with display:none or removing from the DOM on the client side with JS.
+     * This workaround moves the instructions into a custom field
+     * (which we then use in our custom label rendering function to render an icon + tooltip instead of the usual instruction markup).
+     *
+     * @param  $field
+     *
+     * @return array
+     */
+    public function prepare_fields_that_should_have_instructions_as_tooltips($field): array {
+        if ($this->should_render_instructions_as_tooltips($field) && $field['instructions']) {
+            $field['tooltip'] = $field['instructions'];
+            $field['instructions'] = '';
+        }
+
+        return $field;
+    }
+
+    public function render_some_acf_field_instructions_as_tooltips($label, $field, $context): string {
+        if ($this->should_render_instructions_as_tooltips($field) && isset($field['tooltip'])) {
+            // Note: Something is stripping tabindex from non-interactive elements like <span> in the admin, so we have to use a <button>
+            // type="button" to make it focusable and accessible, without it submitting the form.
+            return <<<HTML
+				{$label}
+					<button type="button" class="acf-js-tooltip" title="{$field['tooltip']}">
+						<span class="dashicons dashicons-editor-help"></span>
+						<span class="screen-reader-text" role="tooltip">{$field['tooltip']}</span>
+					</button>
+				</div>
+				HTML;
+        }
+
+        return $label;
+    }
+
+    protected function should_render_instructions_as_tooltips($field): bool {
+        return isset($field['parent_repeater']) &&
+            ($field['parent_repeater'] === 'field_folders' || $field['parent_repeater'] === 'field_subfolders');
+    }
 }
