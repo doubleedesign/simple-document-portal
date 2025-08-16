@@ -6,10 +6,8 @@ class ScheduledActions extends FileUploadHandler {
     public function __construct() {
         parent::__construct();
         add_action('plugins_loaded', [$this, 'initialise_custom_admin_view'], 10);
+        add_action('admin_notices', [$this, 'missing_actions_warning'], 10);
         add_action('simple_document_portal_scheduled_cleanup', [$this, 'delete_orphaned_files'], 10, 0);
-
-        // TODO Add an admin notice if the expected actions have been disabled or deleted
-        // because while the custom UI is simplified and designed to prevent this, the main Actions Scheduler screen could still be used.
     }
 
     public function initialise_custom_admin_view(): void {
@@ -20,6 +18,22 @@ class ScheduledActions extends FileUploadHandler {
             else {
                 error_log('ActionScheduler_AdminView class not found. You may need to adjust when ScheduledActionsAdminView is loaded.');
             }
+        }
+    }
+
+    public function missing_actions_warning(): void {
+        if (!as_next_scheduled_action('simple_document_portal_scheduled_cleanup')) {
+            $heading = __('Missing cleanup action for Simple Document Portal', 'simple-document-portal');
+            $messageLine1 = esc_html('This action periodically finds files not currently associated with a document and deletes them (this can occur due to scenarios where there is efficient way to trigger a deletion at the time of disassociation, such as abandoned bulk uploads).');
+            $messageLine2 = esc_html('Without this action, documents might be retained on the server that are not in use on the website.');
+
+            echo <<<HTML
+			<div class="notice notice-warning">
+				<h2 style="font-size:1em">$heading</h2>
+				<p>$messageLine1</p>
+				<p>$messageLine2</p>
+			</div>
+			HTML;
         }
     }
 
@@ -41,8 +55,8 @@ class ScheduledActions extends FileUploadHandler {
             }
         }
 
-        if (wp_get_environment_type() === 'local') {
-            \Symfony\Component\VarDumper\VarDumper::dump([
+        if (wp_get_environment_type() === 'local' && function_exists('dump')) {
+            dump([
                 'orphaned_attachments' => $orphaned_attachments,
                 'successes'            => $successes,
                 'failures'             => $failures,
