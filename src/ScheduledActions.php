@@ -1,13 +1,24 @@
 <?php
 namespace Doubleedesign\SimpleDocumentPortal;
 
+use ActionScheduler_DBStore;
+
 class ScheduledActions extends FileUploadHandler {
 
     public function __construct() {
         parent::__construct();
+        add_filter('action_scheduler_store_class', [$this, 'override_action_scheduler_store'], 150, 1);
         add_action('plugins_loaded', [$this, 'initialise_custom_admin_view'], 10);
         add_action('admin_notices', [$this, 'missing_actions_warning'], 10);
         add_action('simple_document_portal_scheduled_cleanup', [$this, 'delete_orphaned_files'], 10, 0);
+    }
+
+    public function override_action_scheduler_store($class): string {
+        if ($class === ActionScheduler_DBStore::class) {
+            return AdminScheduledActions_Store::class;
+        }
+
+        return $class;
     }
 
     public function initialise_custom_admin_view(): void {

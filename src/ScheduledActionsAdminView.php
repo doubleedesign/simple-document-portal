@@ -7,7 +7,8 @@ class ScheduledActionsAdminView extends ActionScheduler_AdminView {
     public function __construct() {
         parent::init();
 
-        // Hacky fix for the menu item not appearing in the correct order, presumably because of the order of hooks for this vs ACF admin options pages.
+        // Hacky fix for the menu item not appearing in the correct order,
+        // presumably because of the order of hooks for this vs ACF admin options pages.
         add_action('admin_menu', function() {
             global $submenu;
             // Note: This can probably be replaced with array_find() when we can require PHP 8.4+

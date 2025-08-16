@@ -15,9 +15,9 @@ class PluginEntrypoint {
         new Documents();
         new Folders();
         new FileHandler();
-        new ScheduledActions();
 
         if (is_admin()) {
+            new ScheduledActions();
             new DocumentsAdmin();
             new FoldersAdmin();
             new AdminUI();

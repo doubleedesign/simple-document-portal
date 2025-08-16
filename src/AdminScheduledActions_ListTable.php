@@ -34,18 +34,38 @@ class AdminScheduledActions_ListTable extends ActionScheduler_ListTable {
             },
             ARRAY_FILTER_USE_KEY
         );
-        // Custom default sort order - status first, and so that Pending appears above Completed
-        $this->sort_by = array_merge(['status'], array_filter($this->sort_by, fn($key) => $key !== 'status'));
+        // Set which columns can be used for sorting
+        $this->sort_by = ['status', 'schedule'];
+    }
 
-        // TODO: Sorting isn't working for any column
+    /**
+     * Make the status column not sortable in the UI table,
+     * while still keeping it functionally sortable in queries and such
+     * because we have custom sorting for it that is modified at the SQL query level
+     *
+     * @return array
+     */
+    public function get_sortable_columns(): array {
+        return array_filter(
+            parent::get_sortable_columns(),
+            function($key) {
+                // Remove 'group' from the sortable columns, as it is not relevant for this view
+                return $key !== 'status';
+            },
+            ARRAY_FILTER_USE_KEY
+        );
     }
 
     /**
      * Prepare the items for display in the admin table.
-     * Because this only prepares the current page of items, filtering the parent class's result ($this->items) doesn't work well.
-     * That unfortunately means the best way to handle this is to duplicate the parent's implementation and add filtering at the query stage.
+     * Because this only prepares the current page of items, filtering and sorting the parent class's result ($this->items) doesn't work well,
+     * so much of that is duplicated here and then customised.
      */
     public function prepare_items(): void {
+        if (empty($this->store)) {
+            return;
+        }
+
         $this->prepare_column_headers();
 
         $per_page = $this->get_items_per_page($this->get_per_page_option_name(), $this->items_per_page);
@@ -55,7 +75,7 @@ class AdminScheduledActions_ListTable extends ActionScheduler_ListTable {
             'offset'   => $this->get_items_offset(),
             'status'   => $this->get_request_status(),
             'orderby'  => $this->get_request_orderby(),
-            'order'    => $this->get_request_order(),
+            'order'    => (empty($_GET['order']) || $this->get_request_orderby() === 'status') ? 'DESC' : $this->get_request_order(),
             'search'   => $this->get_request_search_query(),
             'group'    => 'simple-document-portal'
         );
@@ -68,6 +88,19 @@ class AdminScheduledActions_ListTable extends ActionScheduler_ListTable {
         if ($this->get_request_status() === 'past-due') {
             $query['status'] = ActionScheduler_Store::STATUS_PENDING;
             $query['date'] = as_get_datetime_object();
+        }
+
+        /**
+         * Custom: Change query arguments for incomplete actions.
+         * This is a pseudo-status that includes all actions that are not complete or cancelled
+         * (i.e., pending, running, failed, or past-due).
+         */
+        if ($this->get_request_status() === 'incomplete') {
+            $query['status'] = array(
+                ActionScheduler_Store::STATUS_RUNNING,
+                ActionScheduler_Store::STATUS_PENDING,
+                ActionScheduler_Store::STATUS_FAILED
+            );
         }
 
         $this->items = array();
@@ -109,7 +142,8 @@ class AdminScheduledActions_ListTable extends ActionScheduler_ListTable {
 
     /**
      * Get all the action counts, not just the current page ($this->items is just the current page).
-     * This is copied from \ActionScheduler_DBStore::action_counts and adapted to filter to only actions for this plugin.
+     * This is copied from \ActionScheduler_DBStore::action_counts and adapted to filter to only actions for this plugin,
+     * and to add the link and count for an "incomplete" filter (the actual filtering is done in prepare_items)
      *
      * @return void
      */
@@ -135,7 +169,13 @@ class AdminScheduledActions_ListTable extends ActionScheduler_ListTable {
             }
         }
 
-        $this->status_counts = $actions_count_by_status;
+        $all_items_count = array_sum($actions_count_by_status);
+        $complete_count = $actions_count_by_status[ActionScheduler_Store::STATUS_COMPLETE];
+
+        $this->status_counts = [
+            'incomplete' => $all_items_count - $complete_count,
+            ...$actions_count_by_status
+        ];
     }
 
     protected function display_filter_by_status(): void {
