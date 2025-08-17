@@ -59,7 +59,7 @@ class AdminSettings {
                 array(
                     'key'           => 'field_simple-document-portal__page_title',
                     'label'         => 'Page title',
-                    'name'          => 'page_title',
+                    'name'          => 'document_portal_page_title',
                     'type'          => 'text',
                     'default_value' => 'Document Portal',
                     'maxlength'     => 255
