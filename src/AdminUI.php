@@ -107,8 +107,13 @@ class AdminUI {
             if (!empty($folders) && !is_wp_error($folders)) {
                 echo implode(', ', array_map(function(WP_Term $folder) {
                     $url = add_query_arg('folder', $folder->slug, admin_url('edit.php?post_type=document'));
+                    $parent = get_term($folder->parent, 'folder');
 
-                    return sprintf('<a href="%s">%s</a>', esc_url($url), esc_html($folder->name));
+                    return sprintf(
+                        '%s<a href="%s">%s</a>',
+                        $parent ? esc_html($parent->name) . ' > ' : '',
+                        esc_url($url),
+                        esc_html($folder->name));
                 }, $folders));
             }
             else {
