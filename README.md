@@ -16,7 +16,10 @@ A WordPress plugin to provide access to documents to logged-in users, with a sim
 - Custom capabilities mapped to appropriate built-in capabilities for default permissions
 - Ability to grant the custom capabilities to additional user roles
 - Custom "portal member" user role created on plugin activation, with `read_documents` capability
-- Front-end template for displaying the documents to logged-in users with the `read_documents` capability, which can be overridden by a theme using the standard WordPress (classic) PHP template hierarchy.
+- Front-end template for displaying the documents to logged-in users with the `read_documents` capability, which theme developers can:
+	- add content before using the 'simple_document_portal_archive_template_before_content' action hook
+	- add content after using the 'simple_document_portal_archive_template_after_content' action hook
+	- completely override using the standard WordPress (classic) PHP template hierarchy.
 
 ## Prerequisites
 

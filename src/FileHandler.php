@@ -129,11 +129,46 @@ class FileHandler extends FileUploadHandler {
             $file_path = PluginEntrypoint::get_protected_directory() . '/' . sanitize_file_name($document);
 
             if (file_exists($file_path)) {
-                header('Content-Type: ' . mime_content_type($file_path));
-                readfile($file_path);
-                exit;
+                $mime_type = mime_content_type($file_path);
+                if ($mime_type === 'application/pdf' || str_starts_with($mime_type, 'image/')) {
+                    header('Content-Type: ' . $mime_type);
+                    readfile($file_path);
+                    exit;
+                }
+                else {
+                    $this->serve_file_download($file_path, $mime_type);
+                }
+            }
+            else {
+                status_header(404);
+                if ($this->is_browser_request()) {
+                    wp_redirect(home_url('/404'), 302);
+                    exit;
+                }
+                else {
+                    wp_send_json_error('File not found', 404);
+                }
             }
         }
+    }
+
+    private function serve_file_download($file_path, $mime_type): void {
+        header('HTTP/1.1 200 OK');
+        header('Content-Description: File Transfer');
+        header('Content-Type: ' . $mime_type);
+        header('Content-Disposition: attachment; filename="' . basename($file_path) . '"');
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file_path));
+
+        if (function_exists('apache_setenv')) {
+            apache_setenv('no-gzip', '1');
+        }
+
+        readfile($file_path);
+        exit;
     }
 
     /**

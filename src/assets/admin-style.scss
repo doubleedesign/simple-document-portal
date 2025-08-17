@@ -239,38 +239,6 @@ label:has(button.acf-js-tooltip) {
 }
 
 #acf-group_simple-document-portal__general-settings {
-	.acf-field-layout-switch-breakpoint {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-template-rows: repeat(2, auto);
-		padding: 0.5rem;
-
-		&:before {
-			display: none;
-		}
-
-		.acf-label {
-			display: contents;
-
-			label {
-				grid-row: span 2;
-				grid-column: span 1;
-				align-content: center;
-			}
-
-			.description {
-				order: 3;
-				grid-column: 1 / -1;
-				padding-block-start: 0.25rem;
-			}
-		}
-
-		.acf-input {
-			grid-column: span 4;
-			width: unset;
-			padding: 0;
-		}
-	}
 }
 
 #acf-group_folder-management-fields {

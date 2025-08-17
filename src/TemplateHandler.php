@@ -1,5 +1,7 @@
 <?php
 namespace Doubleedesign\SimpleDocumentPortal;
+use Doubleedesign\Comet\Core\{FileGroup, File};
+use WP_Query;
 
 class TemplateHandler {
     public function __construct() {
@@ -55,5 +57,56 @@ class TemplateHandler {
         }
 
         return $tag;
+    }
+
+    /**
+     * Utility function for the archive template, to build file group components for a folder
+     *
+     * @param  $folder_id
+     *
+     * @return FileGroup|null
+     */
+    public static function create_filegroup_component($folder_id): ?FileGroup {
+        $query = new WP_Query([
+            'post_type'      => 'document',
+            'tax_query'      => [
+                [
+                    'taxonomy'         => 'folder',
+                    'field'            => 'term_id',
+                    'terms'            => $folder_id,
+                    'include_children' => false,
+                ],
+            ],
+            'posts_per_page' => -1,
+        ]);
+        $document_ids = wp_list_pluck($query->posts, 'ID');
+        wp_reset_postdata();
+
+        if (empty($document_ids)) {
+            return null;
+        }
+
+        $files = array_map(
+            function($post_id) {
+                $attachment_id = get_post_meta($post_id, 'protected_document_file', true);
+                $filesize = wp_get_attachment_metadata($attachment_id)['filesize'] ?? '';
+                if ($filesize) {
+                    $filesize = number_format($filesize / 1024 / 1024, 2) . ' MB';
+                }
+
+                return new File([
+                    'title'       => get_the_title($post_id),
+                    'url'         => wp_get_attachment_url($attachment_id),
+                    'description' => get_the_excerpt($attachment_id),
+                    'size'        => $filesize,
+                    'mimeType'    => get_post_mime_type($attachment_id) ?? '',
+                    'uploadDate'  => get_post_datetime($attachment_id)->format('j F, Y'),
+                    'context' 	   => 'file-group'
+                ]);
+            },
+            $document_ids
+        );
+
+        return new FileGroup([], $files);
     }
 }

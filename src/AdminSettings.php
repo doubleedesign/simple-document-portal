@@ -59,7 +59,7 @@ class AdminSettings {
                 array(
                     'key'           => 'field_simple-document-portal__page_title',
                     'label'         => 'Page title',
-                    'name'          => 'page_title',
+                    'name'          => 'document_portal_page_title',
                     'type'          => 'text',
                     'default_value' => 'Document Portal',
                     'maxlength'     => 255
@@ -79,7 +79,7 @@ class AdminSettings {
                     'label'      => 'Portal layout',
                     'name'       => 'portal_layout',
                     'type'       => 'group',
-                    'layout'     => 'row',
+                    'layout'     => 'block',
                     'sub_fields' => array(
                         array(
                             'key'           => 'field_layout_switch_breakpoint',
@@ -93,6 +93,21 @@ class AdminSettings {
                             'step'          => 1,
                             'append'        => 'pixels',
                         ),
+                        array(
+                            'key'           => 'field_portal_colour_theme',
+                            'label'         => 'Primary colour',
+                            'name'          => 'portal_colour_theme',
+                            'type'          => 'select',
+                            'instructions'  => 'The primary colour used for the document list section of the portal, if your theme supports it using these colour names and corresponding CSS. Your theme may also implement this option in other places.',
+                            'default_value' => 'primary',
+                            'choices'       => array(
+                                'primary'   => 'Primary',
+                                'secondary' => 'Secondary',
+                                'accent'    => 'Accent',
+                                'dark'      => 'Dark',
+                                'light'     => 'Light',
+                            ),
+                        )
                     ),
                 ),
             ),

@@ -95,34 +95,6 @@ label:has(button.acf-js-tooltip) button.acf-js-tooltip:hover, label:has(button.a
   grid-column: 1/-1;
 }
 
-#acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, auto);
-  padding: 0.5rem;
-}
-#acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint:before {
-  display: none;
-}
-#acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint .acf-label {
-  display: contents;
-}
-#acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint .acf-label label {
-  grid-row: span 2;
-  grid-column: span 1;
-  align-content: center;
-}
-#acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint .acf-label .description {
-  order: 3;
-  grid-column: 1/-1;
-  padding-block-start: 0.25rem;
-}
-#acf-group_simple-document-portal__general-settings .acf-field-layout-switch-breakpoint .acf-input {
-  grid-column: span 4;
-  width: unset;
-  padding: 0;
-}
-
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-row-handle:first-child {
   display: none;
   pointer-events: none;
