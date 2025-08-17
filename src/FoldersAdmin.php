@@ -252,35 +252,43 @@ class FoldersAdmin {
         // Note: We can't do a negative check and return to bail early here, because that will bail early for other options pages
         if (is_admin() && ($post_id === 'options' && isset($_POST['acf']['field_folders']))) {
             $submitted_data = $_POST['acf']['field_folders'];
+            if ($submitted_data === '') {
+                $submitted_top_level_ids = [];
+                $submitted_subfolder_ids = [];
+            }
+            else {
+                $submitted_top_level_ids = array_column($submitted_data, 'field_folder-id');
+                $submitted_subfolder_ids = array_reduce($submitted_data, function($carry, $item) {
+                    if (is_array($item['field_subfolders'])) {
+                        return array_merge($carry, array_column($item['field_subfolders'], 'field_folder-id'));
+                    }
+
+                    return $carry;
+                }, []);
+            }
             $existing_folders = get_terms(array(
                 'taxonomy'   => 'folder',
                 'hide_empty' => false,
             ));
-            $existing_ids = array_column($existing_folders, 'term_id');
-            $submitted_top_level_ids = array_column($submitted_data, 'field_folder-id');
-            $submitted_subfolder_ids = array_reduce($submitted_data, function($carry, $item) {
-                if (is_array($item['field_subfolders'])) {
-                    return array_merge($carry, array_column($item['field_subfolders'], 'field_folder-id'));
-                }
-
-                return $carry;
-            }, []);
             $submitted_ids = array_merge($submitted_top_level_ids, $submitted_subfolder_ids);
+            $existing_ids = array_column($existing_folders, 'term_id');
 
             $new_ids = [];
-            array_walk($submitted_data, function(&$item) use ($new_ids) {
-                $new_id = $this->save_folder($item);
-                array_push($new_ids, $new_id);
-                if (is_array($item['field_subfolders'])) {
-                    array_walk($item['field_subfolders'], function($subfolder) use ($new_ids, $item) {
-                        $new_id = $this->save_folder(array(
-                            'parent' => $item['field_folder-id'],
-                            ...$subfolder
-                        ));
-                        array_push($new_ids, $new_id);
-                    });
-                }
-            });
+            if (is_array($submitted_data)) {
+                array_walk($submitted_data, function(&$item) use ($new_ids) {
+                    $new_id = $this->save_folder($item);
+                    array_push($new_ids, $new_id);
+                    if (is_array($item['field_subfolders'])) {
+                        array_walk($item['field_subfolders'], function($subfolder) use ($new_ids, $item) {
+                            $new_id = $this->save_folder(array(
+                                'parent' => $item['field_folder-id'],
+                                ...$subfolder
+                            ));
+                            array_push($new_ids, $new_id);
+                        });
+                    }
+                });
+            }
 
             // Clear the default field that this form creates so we don't store redundant submitted_data in the wp_options table
             update_field('field_folders', [], 'options');
