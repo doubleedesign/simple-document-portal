@@ -95,7 +95,10 @@ if (current_user_can('read_documents')) {
     }, $folders);
 
     $component = new ResponsivePanels(
-        ['breakpoint' => get_option('options_portal_layout_layout_switch_breakpoint') . 'px' ?? '768px'],
+        array(
+            'breakpoint' => get_option('options_portal_layout_layout_switch_breakpoint') . 'px' ?? '768px',
+            'colorTheme' => get_option('options_portal_layout_portal_colour_theme') ?? 'primary',
+        ),
         $panels
     );
     $component->render();
