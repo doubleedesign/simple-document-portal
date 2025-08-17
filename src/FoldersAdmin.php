@@ -84,7 +84,7 @@ class FoldersAdmin {
                 array(
                     'key'     => 'field_folder-management-notes',
                     'type'    => 'message',
-                    'message' => '<ul><li>Folders and subfolders will automatically be sorted by prefix after saving.</li></ul>',
+                    'message' => '<ul><li>Folders and subfolders will automatically be sorted by prefix after saving.</li><li>To add subfolders to a new folder, click "update folders" to save the top-level folder first.</li></ul>',
                     'wrapper' => array(
                         'class' => 'notice notice-info',
                     ),
@@ -130,6 +130,14 @@ class FoldersAdmin {
                             'name'              => 'field_subfolders_repeater',
                             'label'             => 'Subfolders',
                             'type'              => 'repeater',
+                            'conditional_logic' => array(
+                                array(
+                                    array(
+                                        'field'    => 'field_folder-id',
+                                        'operator' => '!=empty',
+                                    ),
+                                ),
+                            ),
                             'required'          => 0,
                             'layout'            => 'table',
                             'pagination'        => false,
