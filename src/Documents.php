@@ -10,9 +10,10 @@ class Documents {
     public function __construct() {
         add_action('init', [$this, 'register_cpt'], 1);
         add_filter('private_title_format', [$this, 'remove_private_prefix_from_document_title'], 10, 2);
+        add_filter('get_the_archive_title', [$this, 'use_portal_page_title_for_archive_title'], 10, 3);
     }
 
-    /**
+    /*
      * Register the custom post type for documents.
      *
      * @return void
@@ -101,6 +102,24 @@ class Documents {
         }
 
         return '%s';
+    }
+
+    /**
+     * Use the portal page title anywhere the Documents archive title is used
+     * e.g., in breadcrumbs or anywhere else get_the_archive_title() is called
+     *
+     * @param  $title
+     * @param  $original_title
+     * @param  $prefix
+     *
+     * @return string
+     */
+    public function use_portal_page_title_for_archive_title($title, $original_title, $prefix): string {
+        if ($original_title === 'Documents') {
+            return get_option('options_document_portal_page_title', __('Documents', 'simple-document-portal'));
+        }
+
+        return $title;
     }
 
 }
