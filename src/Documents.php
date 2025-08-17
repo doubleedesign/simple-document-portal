@@ -9,6 +9,7 @@ class Documents {
 
     public function __construct() {
         add_action('init', [$this, 'register_cpt'], 1);
+        add_filter('private_title_format', [$this, 'remove_private_prefix_from_document_title'], 10, 2);
     }
 
     /**
@@ -83,6 +84,23 @@ class Documents {
         );
 
         register_post_type('document', $args);
+    }
+
+    /**
+     * Document posts are made private automatically by some code elsewhere in this plugin,
+     * but we don't want the WP default "Private: " prefix shown to users, so we override that here
+     *
+     * @param  $prepend
+     * @param  $post
+     *
+     * @return string
+     */
+    public function remove_private_prefix_from_document_title($prepend, $post): string {
+        if ($post->post_type !== 'document') {
+            return $prepend;
+        }
+
+        return '%s';
     }
 
 }
