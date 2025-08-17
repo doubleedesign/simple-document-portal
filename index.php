@@ -16,8 +16,8 @@ use Doubleedesign\Comet\Core\Config;
 use Doubleedesign\SimpleDocumentPortal\PluginEntrypoint;
 
 Config::set_blade_component_paths([
-    __DIR__ . '\\vendor\\doubleedesign\\comet-file-group\\src',
-    __DIR__ . '\\vendor\\doubleedesign\\comet-responsive-panels\\src',
+    __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'doubleedesign' . DIRECTORY_SEPARATOR . 'comet-file-group' . DIRECTORY_SEPARATOR . 'src',
+    __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'doubleedesign' . DIRECTORY_SEPARATOR . 'comet-responsive-panels' . DIRECTORY_SEPARATOR . 'src',
 ]);
 
 new PluginEntrypoint();
