@@ -43,7 +43,7 @@ if (current_user_can('read_documents')) {
 			HTML;
 
             return new ResponsivePanel(
-                ['title' => $folder->name],
+                ['title' => $folder->name, 'classes' => ['entry-content']],
                 [new PreprocessedHTML($content)]
             );
         }
@@ -53,10 +53,12 @@ if (current_user_can('read_documents')) {
             $file_group = TemplateHandler::create_filegroup_component($subfolder->term_id);
             if ($file_group === null) {
                 $content = <<<HTML
+				<div class="file-group-wrapper">
 					<h2>$subfolder->name</h2>
 					<div class="no-documents-message">
 						<p>No documents found in this subfolder.</p>
 					</div>
+				</div>
 				HTML;
 
                 return new PreprocessedHTML($content);
@@ -67,8 +69,10 @@ if (current_user_can('read_documents')) {
             $rendered_files = ob_get_clean();
 
             $content = <<<HTML
-				<h2>$subfolder->name</h2>
-				$rendered_files
+				<div class="file-group-wrapper">
+					<h2>$subfolder->name</h2>
+					$rendered_files
+				</div>
 			HTML;
 
             return new PreprocessedHTML($content);
@@ -78,14 +82,14 @@ if (current_user_can('read_documents')) {
         // we don't want to show anything for the top level so just pass the subfolders for the inner component
         if ($top_level_file_group === null) {
             return new ResponsivePanel(
-                ['title' => $folder->name],
+                ['title' => $folder->name, 'classes' => ['entry-content']],
                 $innerComponents
             );
         }
 
         // If there are both top level documents and subfolders, pass in both as the inner components
         return new ResponsivePanel(
-            ['title' => $folder->name],
+            ['title' => $folder->name, 'classes' => ['entry-content']],
             [$top_level_file_group, ...$innerComponents]
         );
     }, $folders);
