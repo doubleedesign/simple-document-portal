@@ -107,6 +107,9 @@ class TemplateHandler {
             $document_ids
         );
 
-        return new FileGroup([], $files);
+        return new FileGroup(
+            ['colorTheme'   => get_option('options_portal_layout_portal_colour_theme') ?? 'dark'],
+            $files
+        );
     }
 }

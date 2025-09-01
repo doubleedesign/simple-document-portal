@@ -10,12 +10,6 @@
         <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
-    <option name="pestRunnerSettings">
-      <PestRunner method="" scope="ConfigurationFile" options="--display-deprecations" />
-    </option>
-    <option name="runnerSettings">
-      <PhpTestRunnerSettings method="" scope="ConfigurationFile" options="--display-deprecations" />
-    </option>
     <method v="2" />
   </configuration>
 </component>
