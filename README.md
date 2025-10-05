@@ -43,3 +43,8 @@ Installable plugin zip is available on the [GitHub releases page](https://github
 ## Development
 
 See [README.dev.md](README.dev.md) for information on developing the plugin, and [tests/README.md](tests/README.md) for detailed information on the automated testing setup.
+
+## Troubleshooting
+
+- If the portal page shows a 404 error upon activation, re-save permalinks.
+- If the portal page is missing its heading upon activation, go to Documents -> Portal Settings and save the settings.
