@@ -109,9 +109,22 @@ class UserPermissions {
         $wp_roles_instance = wp_roles();
 
         $roles = array_filter($wp_roles_instance->roles, function($role) {
-            return count(get_users(['role' => $role['name']])) > 0;
+			$snake_case_role = str_replace(' ', '_', strtolower($role['name']));
+            return count(get_users(['role__in' => [$snake_case_role]])) > 0;
         });
 
-        return array_keys($roles);
+        $names = array_keys($roles);
+	    usort($names, function($a, $b) {
+		    $sort_order = ['administrator', 'portal_manager', 'editor', 'author', 'contributor', 'portal_member', 'subscriber'];
+		    $pos_a = array_search($a, $sort_order);
+			$pos_b = array_search($b, $sort_order);
+
+			if ($pos_a === false) $pos_a = PHP_INT_MAX;
+			if ($pos_b === false) $pos_b = PHP_INT_MAX;
+
+			return $pos_a <=> $pos_b;
+		});
+
+		return $names;
     }
 }
