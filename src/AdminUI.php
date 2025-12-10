@@ -111,7 +111,7 @@ class AdminUI {
 
                     return sprintf(
                         '%s<a href="%s">%s</a>',
-                        $parent ? esc_html($parent->name) . ' > ' : '',
+                        $parent ? esc_html($parent->name ?? '') . ' > ' : '',
                         esc_url($url),
                         esc_html($folder->name));
                 }, $folders));

@@ -9,6 +9,7 @@ class UserPermissions {
         'delete_documents'         => 'delete_private_posts',
         'publish_documents'        => 'publish_posts',
         'manage_documents_options' => 'manage_options',
+        // 'manage_portal_membership' => 'promote_users',
     ];
 
     /**
@@ -109,22 +110,27 @@ class UserPermissions {
         $wp_roles_instance = wp_roles();
 
         $roles = array_filter($wp_roles_instance->roles, function($role) {
-			$snake_case_role = str_replace(' ', '_', strtolower($role['name']));
+            $snake_case_role = str_replace(' ', '_', strtolower($role['name']));
+
             return count(get_users(['role__in' => [$snake_case_role]])) > 0;
         });
 
         $names = array_keys($roles);
-	    usort($names, function($a, $b) {
-		    $sort_order = ['administrator', 'portal_manager', 'editor', 'author', 'contributor', 'portal_member', 'subscriber'];
-		    $pos_a = array_search($a, $sort_order);
-			$pos_b = array_search($b, $sort_order);
+        usort($names, function($a, $b) {
+            $sort_order = ['administrator', 'portal_manager', 'editor', 'author', 'contributor', 'portal_member', 'subscriber'];
+            $pos_a = array_search($a, $sort_order);
+            $pos_b = array_search($b, $sort_order);
 
-			if ($pos_a === false) $pos_a = PHP_INT_MAX;
-			if ($pos_b === false) $pos_b = PHP_INT_MAX;
+            if ($pos_a === false) {
+                $pos_a = PHP_INT_MAX;
+            }
+            if ($pos_b === false) {
+                $pos_b = PHP_INT_MAX;
+            }
 
-			return $pos_a <=> $pos_b;
-		});
+            return $pos_a <=> $pos_b;
+        });
 
-		return $names;
+        return $names;
     }
 }

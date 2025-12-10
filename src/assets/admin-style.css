@@ -1,388 +1,388 @@
 label:has(button.acf-js-tooltip) {
-  display: flex !important;
-  align-items: center;
-  gap: 0.125rem;
+	display: flex !important;
+	align-items: center;
+	gap: 0.125rem;
 }
 label:has(button.acf-js-tooltip) button.acf-js-tooltip {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  opacity: 0.5;
-  transition: opacity 0.2s ease-in-out;
-  padding: 0;
-  font-size: 0.8rem;
+	appearance: none;
+	border: 0;
+	background: transparent;
+	opacity: 0.5;
+	transition: opacity 0.2s ease-in-out;
+	padding: 0;
+	font-size: 0.8rem;
 }
 label:has(button.acf-js-tooltip) button.acf-js-tooltip:hover, label:has(button.acf-js-tooltip) button.acf-js-tooltip:focus {
-  opacity: 1;
+	opacity: 1;
 }
 
 .acf-field .acf-label:not(:has(.description)) {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 .acf-field .acf-label label {
-  font-weight: bold;
-  margin-bottom: 0;
+	font-weight: bold;
+	margin-bottom: 0;
 }
 .acf-field .acf-label .description {
-  margin-top: 0;
+	margin-top: 0;
 }
 .acf-field input[readonly=readonly] {
-  pointer-events: none;
-  opacity: 0.5;
+	pointer-events: none;
+	opacity: 0.5;
 }
 
 .acf-field-message .acf-input p:first-child {
-  margin-top: 0;
+	margin-top: 0;
 }
 .acf-field-message .acf-input p:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .post-type-document .acf-settings-wrap > h1 {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 .post-type-document .acf-settings-wrap > h1 .button {
-  top: 0;
+	top: 0;
 }
 .post-type-document .acf-settings-wrap > h1 .button:active {
-  margin-left: unset;
+	margin-left: unset;
 }
 .post-type-document #minor-publishing-actions {
-  display: none;
+	display: none;
 }
 .post-type-document #post-visibility-select br {
-  display: none;
+	display: none;
 }
 .post-type-document #post-visibility-select label[for=visibility-radio-public] small,
 .post-type-document #post-visibility-select label[for=visibility-radio-private] small {
-  display: block;
-  font-size: 0.9em;
-  font-style: italic;
-  margin-block-end: 0.5rem;
-  margin-inline-start: 1.5rem;
-  line-height: 1.3;
+	display: block;
+	font-size: 0.9em;
+	font-style: italic;
+	margin-block-end: 0.5rem;
+	margin-inline-start: 1.5rem;
+	line-height: 1.3;
 }
 .post-type-document #post-visibility-select input#visibility-radio-password,
 .post-type-document #post-visibility-select label[for=visibility-radio-password] {
-  display: none;
-  pointer-events: none;
-  cursor: not-allowed;
-  opacity: 0.5;
+	display: none;
+	pointer-events: none;
+	cursor: not-allowed;
+	opacity: 0.5;
 }
 
 #acf-group_simple-document-portal__document-access-settings {
-  container-type: inline-size;
+	container-type: inline-size;
 }
 @container (width >= 400px) {
-  #acf-group_simple-document-portal__document-access-settings .acf-fields {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+	#acf-group_simple-document-portal__document-access-settings .acf-fields {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 @container (width >= 600px) {
-  #acf-group_simple-document-portal__document-access-settings .acf-fields {
-    grid-template-columns: repeat(3, 1fr);
-  }
+	#acf-group_simple-document-portal__document-access-settings .acf-fields {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 @container (width >= 800px) {
-  #acf-group_simple-document-portal__document-access-settings .acf-fields {
-    grid-template-columns: repeat(5, 1fr);
-  }
+	#acf-group_simple-document-portal__document-access-settings .acf-fields {
+		grid-template-columns: repeat(5, 1fr);
+	}
 }
 #acf-group_simple-document-portal__document-access-settings .acf-fields .acf-field-message {
-  grid-column: 1/-1;
+	grid-column: 1/-1;
 }
 
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-row-handle:first-child {
-  display: none;
-  pointer-events: none;
+	display: none;
+	pointer-events: none;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-icon.-minus::before {
-  content: "\f182";
+	content: "\f182";
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-row-handle [data-event=add-row] {
-  display: none;
-  pointer-events: none;
+	display: none;
+	pointer-events: none;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table {
-  display: block;
-  container-type: inline-size;
+	display: block;
+	container-type: inline-size;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody {
-  display: contents;
+	display: contents;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead .acf-th[data-name=field_subfolders_repeater], #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody .acf-th[data-name=field_subfolders_repeater] {
-  display: none;
+	display: none;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead .acf-row-handle:empty, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody .acf-row-handle:empty {
-  display: none;
+	display: none;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead .acf-row-handle.remove, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody .acf-row-handle.remove {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1rem !important;
-  height: 1.5rem;
-  background: transparent;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1rem !important;
+	height: 1.5rem;
+	background: transparent;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table thead .acf-row-handle.remove [data-event=remove-row], #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table tbody .acf-row-handle.remove [data-event=remove-row] {
-  display: block;
+	display: block;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  justify-content: flex-end;
-  padding-inline-end: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+	justify-content: flex-end;
+	padding-inline-end: 1.5rem;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-field, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-th {
-  width: 10%;
-  flex-basis: 10%;
+	width: 10%;
+	flex-basis: 10%;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-field .acf-label,
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-field .acf-input, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-th .acf-label,
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-th .acf-input {
-  padding-inline: 0;
+	padding-inline: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=prefix] {
-  width: 10%;
-  flex-basis: 10%;
-  padding-inline-end: 0;
-  order: -2;
-  width: 10%;
-  flex-basis: 10%;
+	width: 10%;
+	flex-basis: 10%;
+	padding-inline-end: 0;
+	order: -2;
+	width: 10%;
+	flex-basis: 10%;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=prefix] {
-    order: unset;
-    min-width: 4rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=prefix] {
+		order: unset;
+		min-width: 4rem;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=prefix] input {
-  background: transparent;
-  border-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+	background: transparent;
+	border-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=name] {
-  width: auto;
-  flex-basis: auto;
-  padding-inline-start: 0;
-  width: 90%;
-  flex-basis: 90%;
-  order: -1;
+	width: auto;
+	flex-basis: auto;
+	padding-inline-start: 0;
+	width: 90%;
+	flex-basis: 90%;
+	order: -1;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=name] {
-    flex-grow: 1;
-    flex-basis: unset;
-    width: unset;
-    order: unset;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=name] {
+		flex-grow: 1;
+		flex-basis: unset;
+		width: unset;
+		order: unset;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=name] input {
-  border-left: 0;
-  padding-left: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+	border-left: 0;
+	padding-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=slug] {
-  padding-inline: 0.5rem;
-  box-sizing: border-box;
-  width: calc(200px + 1rem);
-  flex-basis: calc(200px + 1rem);
+	padding-inline: 0.5rem;
+	box-sizing: border-box;
+	width: calc(200px + 1rem);
+	flex-basis: calc(200px + 1rem);
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=id] {
-  width: 4rem;
-  flex-basis: 4rem;
+	width: 4rem;
+	flex-basis: 4rem;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=id] {
-    width: 6rem;
-    flex-basis: 6rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-name=id] {
+		width: 6rem;
+		flex-basis: 6rem;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-type=repeater] {
-  width: 100%;
-  flex-basis: 100%;
+	width: 100%;
+	flex-basis: 100%;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-key=field_subfolders] [data-name=name] {
-    margin-inline-start: -0.25rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-key=field_subfolders] [data-name=name] {
+		margin-inline-start: -0.25rem;
+	}
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-key=field_subfolders] [data-name=id] {
-    width: 4rem;
-    flex-basis: 4rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr [data-key=field_subfolders] [data-name=id] {
+		width: 4rem;
+		flex-basis: 4rem;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr th, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr td {
-  width: unset !important;
-  padding-inline: 0;
+	width: unset !important;
+	padding-inline: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-field-subfolders th, #acf-group_folder-management-fields div[data-name=field_folders_repeater] .acf-table:not(.-row) tr .acf-field-subfolders td {
-  border: 0;
+	border: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table {
-  border: 0;
-  background: 0;
+	border: 0;
+	background: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row {
-  display: block;
-  background: white;
-  margin-block: 1rem;
-  border-radius: 4px;
-  border: 0;
-  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.15);
-  padding-inline: 2rem 2.5rem;
+	display: block;
+	background: white;
+	margin-block: 1rem;
+	border-radius: 4px;
+	border: 0;
+	box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.15);
+	padding-inline: 2rem 2.5rem;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-row-handle.remove {
-  background: transparent;
-  border: 0;
-  top: 1.6rem;
-  padding: 0.5rem 1rem;
+	background: transparent;
+	border: 0;
+	top: 1.6rem;
+	padding: 0.5rem 1rem;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-row-handle.remove .acf-icon.-minus {
-  box-sizing: border-box;
-  height: 1.5rem;
-  width: 1.5rem;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 1px;
+	box-sizing: border-box;
+	height: 1.5rem;
+	width: 1.5rem;
+	font-size: 1.1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 1px;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields {
-  border: 0;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  justify-content: flex-end;
-  padding-inline-end: 2rem;
+	border: 0;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+	justify-content: flex-end;
+	padding-inline-end: 2rem;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields .acf-field, #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields .acf-th {
-  width: 10%;
-  flex-basis: 10%;
+	width: 10%;
+	flex-basis: 10%;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields .acf-field .acf-label,
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields .acf-field .acf-input, #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields .acf-th .acf-label,
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields .acf-th .acf-input {
-  padding-inline: 0;
+	padding-inline: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=prefix] {
-  width: 10%;
-  flex-basis: 10%;
-  padding-inline-end: 0;
-  order: -2;
-  width: 10%;
-  flex-basis: 10%;
+	width: 10%;
+	flex-basis: 10%;
+	padding-inline-end: 0;
+	order: -2;
+	width: 10%;
+	flex-basis: 10%;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=prefix] {
-    order: unset;
-    min-width: 4rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=prefix] {
+		order: unset;
+		min-width: 4rem;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=prefix] input {
-  background: transparent;
-  border-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+	background: transparent;
+	border-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=name] {
-  width: auto;
-  flex-basis: auto;
-  padding-inline-start: 0;
-  width: 90%;
-  flex-basis: 90%;
-  order: -1;
+	width: auto;
+	flex-basis: auto;
+	padding-inline-start: 0;
+	width: 90%;
+	flex-basis: 90%;
+	order: -1;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=name] {
-    flex-grow: 1;
-    flex-basis: unset;
-    width: unset;
-    order: unset;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=name] {
+		flex-grow: 1;
+		flex-basis: unset;
+		width: unset;
+		order: unset;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=name] input {
-  border-left: 0;
-  padding-left: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+	border-left: 0;
+	padding-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=slug] {
-  padding-inline: 0.5rem;
-  box-sizing: border-box;
-  width: calc(200px + 1rem);
-  flex-basis: calc(200px + 1rem);
+	padding-inline: 0.5rem;
+	box-sizing: border-box;
+	width: calc(200px + 1rem);
+	flex-basis: calc(200px + 1rem);
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=id] {
-  width: 4rem;
-  flex-basis: 4rem;
+	width: 4rem;
+	flex-basis: 4rem;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=id] {
-    width: 6rem;
-    flex-basis: 6rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-name=id] {
+		width: 6rem;
+		flex-basis: 6rem;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-type=repeater] {
-  width: 100%;
-  flex-basis: 100%;
+	width: 100%;
+	flex-basis: 100%;
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-key=field_subfolders] [data-name=name] {
-    margin-inline-start: -0.25rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-key=field_subfolders] [data-name=name] {
+		margin-inline-start: -0.25rem;
+	}
 }
 @container (width >= 500px) {
-  #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-key=field_subfolders] [data-name=id] {
-    width: 4rem;
-    flex-basis: 4rem;
-  }
+	#acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields [data-key=field_subfolders] [data-name=id] {
+		width: 4rem;
+		flex-basis: 4rem;
+	}
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields:before {
-  font-family: dashicons;
-  content: "\f18f";
-  font-size: 1.5rem;
-  position: absolute;
-  top: 2rem;
-  left: -1.5rem;
+	font-family: dashicons;
+	content: "\f18f";
+	font-size: 1.5rem;
+	position: absolute;
+	top: 2rem;
+	left: -1.5rem;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field {
-  display: flex;
-  flex-direction: column;
-  border-top: 0;
+	display: flex;
+	flex-direction: column;
+	border-top: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field > .acf-label,
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field > .acf-input {
-  width: 100%;
-  flex-basis: 100%;
+	width: 100%;
+	flex-basis: 100%;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field:before {
-  display: none;
+	display: none;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field[data-name=field_subfolders_repeater] {
-  border-top: 0;
-  padding-top: 0;
+	border-top: 0;
+	padding-top: 0;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field[data-name=field_subfolders_repeater] .acf-table {
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  background: white;
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+	box-sizing: border-box;
+	background: white;
 }
 #acf-group_folder-management-fields div[data-name=field_folders_repeater] > .acf-input > .acf-repeater.-row > .acf-table > tbody > .acf-row > .acf-fields > .acf-field[data-name=field_subfolders_repeater] .acf-table .acf-th {
-  padding-bottom: 0;
+	padding-bottom: 0;
 }
 
 /*# sourceMappingURL=admin-style.css.map */

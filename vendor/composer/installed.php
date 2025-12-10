@@ -1,13 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'doubleedesign/simple-document-portal',
-<<<<<<< Updated upstream
-        'pretty_version' => '0.1.4',
-        'version' => '0.1.4.0',
-=======
-        'pretty_version' => '0.1.0',
-        'version' => '0.1.0.0',
->>>>>>> Stashed changes
+        'pretty_version' => '1.1.0',
+        'version' => '1.1.0.0',
         'reference' => null,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -16,9 +11,9 @@
     ),
     'versions' => array(
         'brianium/paratest' => array(
-            'pretty_version' => 'v7.8.3',
-            'version' => '7.8.3.0',
-            'reference' => 'a585c346ddf1bec22e51e20b5387607905604a71',
+            'pretty_version' => 'v7.8.4',
+            'version' => '7.8.4.0',
+            'reference' => '130a9bf0e269ee5f5b320108f794ad03e275cad4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../brianium/paratest',
             'aliases' => array(),
@@ -43,15 +38,9 @@
             'dev_requirement' => true,
         ),
         'doctrine/inflector' => array(
-<<<<<<< Updated upstream
             'pretty_version' => '2.1.0',
             'version' => '2.1.0.0',
             'reference' => '6d6c96277ea252fc1304627204c3d5e6e15faa3b',
-=======
-            'pretty_version' => '2.0.10',
-            'version' => '2.0.10.0',
-            'reference' => '5817d0659c5b50c9b950feb9af7b9668e2c436bc',
->>>>>>> Stashed changes
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/inflector',
             'aliases' => array(),
@@ -60,11 +49,7 @@
         'doubleedesign/comet-components-launchpad' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< Updated upstream
             'reference' => 'd1fafce62828f87a53dd3c0dee6464955cb0b4e4',
-=======
-            'reference' => 'bf5c9315f855309014f5a27b880694be59921175',
->>>>>>> Stashed changes
             'type' => 'library',
             'install_path' => __DIR__ . '/../doubleedesign/comet-components-launchpad',
             'aliases' => array(
@@ -75,11 +60,7 @@
         'doubleedesign/comet-file-group' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< Updated upstream
             'reference' => 'f07b375871636b80761a810896143329ce669712',
-=======
-            'reference' => 'b6ce6cf60edb7bdedb7d23a02762ddb98b7df8cd',
->>>>>>> Stashed changes
             'type' => 'library',
             'install_path' => __DIR__ . '/../doubleedesign/comet-file-group',
             'aliases' => array(
@@ -90,11 +71,7 @@
         'doubleedesign/comet-responsive-panels' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< Updated upstream
             'reference' => '2bfec1e6b3262a352667dc82b0129f2971de4f5c',
-=======
-            'reference' => '30065d9574054858086b990fc68ec8179451777f',
->>>>>>> Stashed changes
             'type' => 'library',
             'install_path' => __DIR__ . '/../doubleedesign/comet-responsive-panels',
             'aliases' => array(
@@ -103,13 +80,8 @@
             'dev_requirement' => false,
         ),
         'doubleedesign/simple-document-portal' => array(
-<<<<<<< Updated upstream
-            'pretty_version' => '0.1.4',
-            'version' => '0.1.4.0',
-=======
-            'pretty_version' => '0.1.0',
-            'version' => '0.1.0.0',
->>>>>>> Stashed changes
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
             'reference' => null,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
@@ -279,15 +251,9 @@
             'dev_requirement' => false,
         ),
         'nikic/php-parser' => array(
-<<<<<<< Updated upstream
             'pretty_version' => 'v5.6.1',
             'version' => '5.6.1.0',
             'reference' => 'f103601b29efebd7ff4a1ca7b3eeea9e3336a2a2',
-=======
-            'pretty_version' => 'v5.6.0',
-            'version' => '5.6.0.0',
-            'reference' => '221b0d0fdf1369c71047ad1d18bb5880017bbc56',
->>>>>>> Stashed changes
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
@@ -312,9 +278,9 @@
             'dev_requirement' => true,
         ),
         'pestphp/pest' => array(
-            'pretty_version' => 'v3.8.2',
-            'version' => '3.8.2.0',
-            'reference' => 'c6244a8712968dbac88eb998e7ff3b5caa556b0d',
+            'pretty_version' => 'v3.8.4',
+            'version' => '3.8.4.0',
+            'reference' => '72cf695554420e21858cda831d5db193db102574',
             'type' => 'library',
             'install_path' => __DIR__ . '/../pestphp/pest',
             'aliases' => array(),
@@ -393,18 +359,18 @@
             'dev_requirement' => true,
         ),
         'phpstan/phpdoc-parser' => array(
-            'pretty_version' => '2.2.0',
-            'version' => '2.2.0.0',
-            'reference' => 'b9e61a61e39e02dd90944e9115241c7f7e76bfd8',
+            'pretty_version' => '2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => '1e0cd5370df5dd2e556a36b9c62f62e555870495',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpstan/phpdoc-parser',
             'aliases' => array(),
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(
-            'pretty_version' => '11.0.10',
-            'version' => '11.0.10.0',
-            'reference' => '1a800a7446add2d79cc6b3c01c45381810367d76',
+            'pretty_version' => '11.0.11',
+            'version' => '11.0.11.0',
+            'reference' => '4f7722aa9a7b76aa775e2d9d4e95d1ea16eeeef4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
@@ -456,9 +422,9 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-            'pretty_version' => '11.5.15',
-            'version' => '11.5.15.0',
-            'reference' => '4b6a4ee654e5e0c5e1f17e2f83c0f4c91dee1f9c',
+            'pretty_version' => '11.5.33',
+            'version' => '11.5.33.0',
+            'reference' => '5965e9ff57546cb9137c0ff6aa78cb7442b05cf6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
@@ -663,9 +629,9 @@
             'dev_requirement' => true,
         ),
         'symfony/console' => array(
-            'pretty_version' => 'v7.3.2',
-            'version' => '7.3.2.0',
-            'reference' => '5f360ebc65c55265a74d23d7fe27f957870158a1',
+            'pretty_version' => 'v7.3.3',
+            'version' => '7.3.3.0',
+            'reference' => 'cb0102a1c5ac3807cf3fdf8bea96007df7fdbea7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
@@ -690,8 +656,8 @@
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(
-            'pretty_version' => 'v1.32.0',
-            'version' => '1.32.0.0',
+            'pretty_version' => 'v1.33.0',
+            'version' => '1.33.0.0',
             'reference' => 'a3cc8b044a6ea513310cbd48ef7333b384945638',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-ctype',
@@ -699,17 +665,17 @@
             'dev_requirement' => true,
         ),
         'symfony/polyfill-intl-grapheme' => array(
-            'pretty_version' => 'v1.32.0',
-            'version' => '1.32.0.0',
-            'reference' => 'b9123926e3b7bc2f98c02ad54f6a4b02b91a8abe',
+            'pretty_version' => 'v1.33.0',
+            'version' => '1.33.0.0',
+            'reference' => '380872130d3a5dd3ace2f4010d95125fde5d5c70',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-intl-grapheme',
             'aliases' => array(),
             'dev_requirement' => true,
         ),
         'symfony/polyfill-intl-normalizer' => array(
-            'pretty_version' => 'v1.32.0',
-            'version' => '1.32.0.0',
+            'pretty_version' => 'v1.33.0',
+            'version' => '1.33.0.0',
             'reference' => '3833d7255cc303546435cb650316bff708a1c75c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-intl-normalizer',
@@ -717,8 +683,8 @@
             'dev_requirement' => true,
         ),
         'symfony/polyfill-mbstring' => array(
-            'pretty_version' => 'v1.32.0',
-            'version' => '1.32.0.0',
+            'pretty_version' => 'v1.33.0',
+            'version' => '1.33.0.0',
             'reference' => '6d857f4d76bd4b343eac26d6b539585d2bc56493',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
@@ -726,8 +692,8 @@
             'dev_requirement' => false,
         ),
         'symfony/polyfill-php80' => array(
-            'pretty_version' => 'v1.32.0',
-            'version' => '1.32.0.0',
+            'pretty_version' => 'v1.33.0',
+            'version' => '1.33.0.0',
             'reference' => '0cc9dd0f17f61d8131e7df6b84bd344899fe2608',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-php80',
@@ -735,9 +701,9 @@
             'dev_requirement' => false,
         ),
         'symfony/process' => array(
-            'pretty_version' => 'v7.3.0',
-            'version' => '7.3.0.0',
-            'reference' => '40c295f2deb408d5e9d2d32b8ba1dd61e36f05af',
+            'pretty_version' => 'v7.3.3',
+            'version' => '7.3.3.0',
+            'reference' => '32241012d521e2e8a9d713adb0812bb773b907f1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
@@ -753,9 +719,9 @@
             'dev_requirement' => true,
         ),
         'symfony/string' => array(
-            'pretty_version' => 'v7.3.2',
-            'version' => '7.3.2.0',
-            'reference' => '42f505aff654e62ac7ac2ce21033818297ca89ca',
+            'pretty_version' => 'v7.3.3',
+            'version' => '7.3.3.0',
+            'reference' => '17a426cce5fd1f0901fefa9b2a490d0038fd3c9c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/string',
             'aliases' => array(),

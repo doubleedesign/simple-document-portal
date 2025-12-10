@@ -15,6 +15,7 @@ class PluginEntrypoint {
         new Documents();
         new Folders();
         new FileHandler();
+        new RouteHandler();
 
         if (is_admin()) {
             new ScheduledActions();
@@ -32,10 +33,10 @@ class PluginEntrypoint {
     public static function activate(): void {
         try {
             self::create_protected_directory();
-            flush_rewrite_rules();
             UserRoles::create_roles();
             UserRoles::reassign_users_roles();
             UserPermissions::map_permissions_to_existing_roles();
+            flush_rewrite_rules();
 
             if (!as_has_scheduled_action('simple_document_portal_scheduled_cleanup')) {
                 // Get WordPress timezone

@@ -4,7 +4,7 @@
  * Description:       Simple management of restricted files. NOTE: This plugin requires the ability to create and write to a directory called "documents" that is one level above the web root on your server.
  * Author:            Double-E Design
  * Author URI:        https://www.doubleedesign.com.au
- * Version:           1.0
+ * Version:           1.1.0
  * Text Domain:       simple-document-portal
  * Requires plugins:  advanced-custom-fields-pro
  */

@@ -47,13 +47,8 @@ return array(
     'Illuminate\\Bus\\' => array($vendorDir . '/illuminate/bus'),
     'Fidry\\CpuCoreCounter\\' => array($vendorDir . '/fidry/cpu-core-counter/src'),
     'Doubleedesign\\SimpleDocumentPortal\\' => array($baseDir . '/src'),
-<<<<<<< Updated upstream
     'Doubleedesign\\Comet\\Core\\' => array($vendorDir . '/doubleedesign/comet-responsive-panels/src/base/traits', $vendorDir . '/doubleedesign/comet-responsive-panels/src/base/components', $vendorDir . '/doubleedesign/comet-responsive-panels/src/base', $vendorDir . '/doubleedesign/comet-file-group/src/base/traits', $vendorDir . '/doubleedesign/comet-file-group/src/base/components', $vendorDir . '/doubleedesign/comet-file-group/src/base', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/types', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/attributes', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/traits', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/components', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base', $vendorDir . '/doubleedesign/comet-components-launchpad/src/services'),
     'Doctrine\\Inflector\\' => array($vendorDir . '/doctrine/inflector/src'),
-=======
-    'Doubleedesign\\Comet\\Core\\' => array($vendorDir . '/doubleedesign/comet-responsive-panels/src/base/traits', $vendorDir . '/doubleedesign/comet-responsive-panels/src/base/components', $vendorDir . '/doubleedesign/comet-responsive-panels/src/base', $vendorDir . '/doubleedesign/comet-file-group/src/base/traits', $vendorDir . '/doubleedesign/comet-file-group/src/base/components', $vendorDir . '/doubleedesign/comet-file-group/src/base', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/types', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/attributes', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base/components', $vendorDir . '/doubleedesign/comet-components-launchpad/src/base', $vendorDir . '/doubleedesign/comet-components-launchpad/src/services'),
-    'Doctrine\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector'),
->>>>>>> Stashed changes
     'Doctrine\\Deprecations\\' => array($vendorDir . '/doctrine/deprecations/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Database\\Seeders\\' => array($vendorDir . '/laravel/pint/database/seeders'),
